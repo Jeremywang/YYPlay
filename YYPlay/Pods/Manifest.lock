@@ -1,0 +1,26 @@
+PODS:
+  - Masonry (1.0.1)
+  - MBProgressHUD (0.9.2)
+  - Onboard (2.2.0)
+  - RESideMenu (4.0.7)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+
+DEPENDENCIES:
+  - Masonry
+  - MBProgressHUD
+  - Onboard
+  - RESideMenu
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  Onboard: c46261255c0bcbe26ab2823782764c96fca7a33e
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+
+PODFILE CHECKSUM: 52f60e0ae3a075f67ff25b534c396427a3ead1dc
+
+COCOAPODS: 1.1.0.beta.1

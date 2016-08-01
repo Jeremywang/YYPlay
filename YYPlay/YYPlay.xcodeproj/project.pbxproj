@@ -13,6 +13,7 @@
 		3F7FDF381D4F453D00E04DA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FDF361D4F453D00E04DA1 /* Main.storyboard */; };
 		3F7FDF3A1D4F453D00E04DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FDF391D4F453D00E04DA1 /* Assets.xcassets */; };
 		3F7FDF3D1D4F453D00E04DA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FDF3B1D4F453D00E04DA1 /* LaunchScreen.storyboard */; };
+		5769DB0E877ED21717F8ACF4 /* libPods-YYPlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BBF5CF9BBB245B2FC825A1D /* libPods-YYPlay.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		3F7FDF391D4F453D00E04DA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F7FDF3C1D4F453D00E04DA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F7FDF3E1D4F453D00E04DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BBF5CF9BBB245B2FC825A1D /* libPods-YYPlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYPlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F82A3027ED7FF9F9B8C711F /* Pods-YYPlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYPlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYPlay/Pods-YYPlay.release.xcconfig"; sourceTree = "<group>"; };
+		EA5DEE2B8704D5D84EF2E976 /* Pods-YYPlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYPlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YYPlay/Pods-YYPlay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5769DB0E877ED21717F8ACF4 /* libPods-YYPlay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				3F7FDF2C1D4F453D00E04DA1 /* YYPlay */,
 				3F7FDF2B1D4F453D00E04DA1 /* Products */,
+				CD4CDFF1003DAD7053D6BED5 /* Pods */,
+				FBD8BB545845D5CB9BFE9E8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CD4CDFF1003DAD7053D6BED5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA5DEE2B8704D5D84EF2E976 /* Pods-YYPlay.debug.xcconfig */,
+				5F82A3027ED7FF9F9B8C711F /* Pods-YYPlay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FBD8BB545845D5CB9BFE9E8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BBF5CF9BBB245B2FC825A1D /* libPods-YYPlay.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F7FDF411D4F453D00E04DA1 /* Build configuration list for PBXNativeTarget "YYPlay" */;
 			buildPhases = (
+				4DAF6A006B4BBF589173826A /* [CP] Check Pods Manifest.lock */,
 				3F7FDF261D4F453D00E04DA1 /* Sources */,
 				3F7FDF271D4F453D00E04DA1 /* Frameworks */,
 				3F7FDF281D4F453D00E04DA1 /* Resources */,
+				28C6C191827A8988FCAEF6B1 /* [CP] Embed Pods Frameworks */,
+				4DEC7FF88DAB5FC628CDFEC7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,6 +137,7 @@
 				TargetAttributes = {
 					3F7FDF291D4F453D00E04DA1 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = DD6C2YQSJ9;
 					};
 				};
 			};
@@ -143,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28C6C191827A8988FCAEF6B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YYPlay/Pods-YYPlay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DAF6A006B4BBF589173826A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4DEC7FF88DAB5FC628CDFEC7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YYPlay/Pods-YYPlay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F7FDF261D4F453D00E04DA1 /* Sources */ = {
@@ -263,8 +339,10 @@
 		};
 		3F7FDF421D4F453D00E04DA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA5DEE2B8704D5D84EF2E976 /* Pods-YYPlay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YYPlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mayfly.YYPlay;
@@ -274,8 +352,10 @@
 		};
 		3F7FDF431D4F453D00E04DA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F82A3027ED7FF9F9B8C711F /* Pods-YYPlay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YYPlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mayfly.YYPlay;
@@ -302,6 +382,7 @@
 				3F7FDF431D4F453D00E04DA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
