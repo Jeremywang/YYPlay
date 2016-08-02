@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LeftSideMenuViewController.h"
-#include "avformat.h"
-
+#import "avformat.h"
 
 @interface AppDelegate ()
 
@@ -27,7 +26,8 @@
 //    
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
     
-    av_register_all();
+    void av_register_all(void);
+    AVFormatContext *pFormatCtx =avformat_alloc_context();
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _sideMenuContentVC = [[SideMenuContentViewController alloc] init];

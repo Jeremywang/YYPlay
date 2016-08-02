@@ -10,10 +10,14 @@
 #define YYPlayer_hpp
 
 #include <stdio.h>
+extern "C" {
 #include "avformat.h"
+}
 
 class YYPlayer {
     YYPlayer();
+    
+    virtual ~YYPlayer();
     
 public:
     int time;

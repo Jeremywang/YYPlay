@@ -6,9 +6,13 @@
 //  Copyright © 2016 MF. All rights reserved.
 //
 
-#include "YYPlayer.hpp"
+#include "YYPlayer.h"
 
 YYPlayer::YYPlayer()
 {
-//    av_register_all();
+    av_register_all();
+}
+
+YYPlayer::~YYPlayer()
+{
 }
