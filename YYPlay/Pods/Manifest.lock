@@ -1,4 +1,5 @@
 PODS:
+  - GHSidebarNav (1.0.0)
   - Masonry (1.0.1)
   - MBProgressHUD (0.9.2)
   - Onboard (2.2.0)
@@ -8,6 +9,7 @@ PODS:
   - SDWebImage/Core (3.8.1)
 
 DEPENDENCIES:
+  - GHSidebarNav
   - Masonry
   - MBProgressHUD
   - Onboard
@@ -15,12 +17,13 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC CHECKSUMS:
+  GHSidebarNav: b0c7937f3fdc2889025d307036223bc0dd7c3a0d
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   Onboard: c46261255c0bcbe26ab2823782764c96fca7a33e
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 52f60e0ae3a075f67ff25b534c396427a3ead1dc
+PODFILE CHECKSUM: d076f472dcb2f2f644e5cb9f3573f556cf598a15
 
 COCOAPODS: 1.1.0.beta.1

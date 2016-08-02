@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LeftSideMenuViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +19,38 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+//    NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+//    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+//    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+//    
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _sideMenuContentVC = [[SideMenuContentViewController alloc] init];
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:_sideMenuContentVC];
+    
+    LeftSideMenuViewController *leftMenuViewController = [[LeftSideMenuViewController alloc] init];
+    
+    _menuController = [[RESideMenu alloc] initWithContentViewController:navCon leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
+                       
+    _menuController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    _menuController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+    _menuController.contentViewShadowColor = [UIColor blackColor];
+    _menuController.contentViewShadowOffset = CGSizeMake(0, 0);
+    _menuController.contentViewShadowOpacity = 0.6;
+    _menuController.contentViewShadowRadius = 12;
+    _menuController.contentViewShadowEnabled = YES;
+    
+    _mainVC = [[MainViewController alloc] init];
+    _mainVC.childViewController = self.menuController;
+    
+    _menuController.delegate = _mainVC;
+    
+    self.window.rootViewController = _mainVC;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

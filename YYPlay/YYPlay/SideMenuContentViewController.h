@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SideMenuContentViewController.h
 //  YYPlay
 //
 //  Created by jeremy on 8/1/16.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RESideMenu.h>
 
-@interface ViewController : UIViewController
-
+@interface SideMenuContentViewController : UIViewController
 
 @end
-
