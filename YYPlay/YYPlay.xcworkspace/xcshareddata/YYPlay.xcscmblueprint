@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4984261E1BC28166D8F4AB67DE2A077AF9E81AB5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4984261E1BC28166D8F4AB67DE2A077AF9E81AB5" : 0,
+    "DDA56F3A5314FD41BD5A9F2A4D7399B19CDF88DC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8120532E-FEB2-448C-B7DF-EAA08032A2FF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4984261E1BC28166D8F4AB67DE2A077AF9E81AB5" : "YYPlay\/",
+    "DDA56F3A5314FD41BD5A9F2A4D7399B19CDF88DC" : "HK-Controller-iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "YYPlay",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "YYPlay\/YYPlay.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Jeremywang\/YYPlay.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4984261E1BC28166D8F4AB67DE2A077AF9E81AB5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Harman-Software-Studio\/HK-Controller-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DDA56F3A5314FD41BD5A9F2A4D7399B19CDF88DC"
+    }
+  ]
+}

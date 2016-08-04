@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LeftSideMenuViewController.h"
-#import "avformat.h"
+#import "YYNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -20,18 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-//    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
-//    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-//    
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
-    
-    void av_register_all(void);
-    AVFormatContext *pFormatCtx =avformat_alloc_context();
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _sideMenuContentVC = [[SideMenuContentViewController alloc] init];
-    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:_sideMenuContentVC];
+    UINavigationController *navCon = [[YYNavigationController alloc] initWithRootViewController:_sideMenuContentVC];
     
     LeftSideMenuViewController *leftMenuViewController = [[LeftSideMenuViewController alloc] init];
     

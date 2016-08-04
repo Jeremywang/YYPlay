@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import <Masonry/Masonry.h>
 
 
 @interface MainViewController () 
@@ -26,7 +25,7 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom);
-        make.height.equalTo(@50);
+        make.height.equalTo(@MiniPlayerViewHeight);
     }];
 }
 

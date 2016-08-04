@@ -1,0 +1,24 @@
+//
+//  YYPlay.pch
+//  YYPlay
+//
+//  Created by jeremy on 8/3/16.
+//  Copyright © 2016 MF. All rights reserved.
+//
+
+#ifndef YYPlay_pch
+#define YYPlay_pch
+
+
+#ifdef __OBJC__
+#import <Masonry/Masonry.h>
+#import <RESideMenu/RESideMenu.h>
+#import "UIColor+JCAdditions.h"
+#import "UIFont+JCAdditions.h"
+#import "avformat.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#endif
+#define MiniPlayerViewHeight    54
+
+#endif /* YYPlay_pch */

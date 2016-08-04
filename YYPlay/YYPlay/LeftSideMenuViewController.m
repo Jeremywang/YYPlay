@@ -9,13 +9,24 @@
 #import "LeftSideMenuViewController.h"
 #import "DEMOFirstViewController.h"
 #import "DEMOSecondViewController.h"
+#import "YYNavigationController.h"
+#import "SettingViewController.h"
+
+typedef enum : NSUInteger {
+    MenuItemHome = 0,
+    MenuItemCalendar,
+    MenuItemProfile,
+    MenuItemSettings,
+    MenuItemCount
+} MenuItem;
+
+
 
 @interface LeftSideMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 {
-     NSArray *_sectionHeaderTexts;
-     NSArray *_menuItemsSectionOne;
-     NSArray *_menuItemsSectionTwo;
-     NSArray *_menuItemsSectionThree;
+     NSArray *_menuItemTitles;
+     NSArray *_menuItemIcons;
+
 }
 @end
 
@@ -24,6 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _menuItemTitles = @[@"Home", @"Calendar", @"Profile", @"Settings"];
+    _menuItemIcons = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings"];
+    
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
@@ -46,14 +60,22 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
-        case 0:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[DEMOFirstViewController alloc] init]]
+        case MenuItemHome:
+            [self.sideMenuViewController setContentViewController:[[YYNavigationController alloc] initWithRootViewController:[[DEMOFirstViewController alloc] init]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 1:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[DEMOSecondViewController alloc] init]]
+        case MenuItemCalendar:
+            [self.sideMenuViewController setContentViewController:[[YYNavigationController alloc] initWithRootViewController:[[DEMOSecondViewController alloc] init]]
                                                          animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+        case MenuItemProfile:
+            break;
+        case MenuItemSettings:
+            [self.sideMenuViewController setContentViewController:[[YYNavigationController alloc] initWithRootViewController:[[SettingViewController alloc] init]]
+                                                         animated:YES];
+            
             [self.sideMenuViewController hideMenuViewController];
             break;
         default:
@@ -76,7 +98,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 5;
+    return [_menuItemTitles count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,11 +115,9 @@
         cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
-    
-    NSArray *titles = @[@"Home", @"Calendar", @"Profile", @"Settings", @"Log Out"];
-    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
-    cell.textLabel.text = titles[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
+
+    cell.textLabel.text = _menuItemTitles[indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:_menuItemIcons[indexPath.row]];
     
     return cell;
 }

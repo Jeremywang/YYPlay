@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3638BD1D51BDD4007E3ED5 /* YYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638BC1D51BDD4007E3ED5 /* YYNavigationController.m */; };
+		3F3638C01D51C15A007E3ED5 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638BF1D51C15A007E3ED5 /* SettingViewController.m */; };
+		3F3638C61D52E1A6007E3ED5 /* UIColor+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638C31D52E1A6007E3ED5 /* UIColor+JCAdditions.m */; };
+		3F3638C71D52E1A6007E3ED5 /* UIFont+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638C51D52E1A6007E3ED5 /* UIFont+JCAdditions.m */; };
+		3F3638CA1D52E358007E3ED5 /* FFMpegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */; };
 		3F7FDF2F1D4F453D00E04DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF2E1D4F453D00E04DA1 /* main.m */; };
 		3F7FDF321D4F453D00E04DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF311D4F453D00E04DA1 /* AppDelegate.m */; };
 		3F7FDF351D4F453D00E04DA1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF341D4F453D00E04DA1 /* MainViewController.m */; };
@@ -39,6 +44,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F3638BB1D51BDD4007E3ED5 /* YYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYNavigationController.h; sourceTree = "<group>"; };
+		3F3638BC1D51BDD4007E3ED5 /* YYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYNavigationController.m; sourceTree = "<group>"; };
+		3F3638BE1D51C15A007E3ED5 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		3F3638BF1D51C15A007E3ED5 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		3F3638C11D51DC61007E3ED5 /* YYPlay.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYPlay.pch; sourceTree = "<group>"; };
+		3F3638C21D52E1A6007E3ED5 /* UIColor+JCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+JCAdditions.h"; path = "../../../HK-Controller-iOS/Source/HKConnect/JBLController/UIColor+JCAdditions.h"; sourceTree = "<group>"; };
+		3F3638C31D52E1A6007E3ED5 /* UIColor+JCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+JCAdditions.m"; path = "../../../HK-Controller-iOS/Source/HKConnect/JBLController/UIColor+JCAdditions.m"; sourceTree = "<group>"; };
+		3F3638C41D52E1A6007E3ED5 /* UIFont+JCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+JCAdditions.h"; path = "../../../HK-Controller-iOS/Source/HKConnect/JBLController/UIFont+JCAdditions.h"; sourceTree = "<group>"; };
+		3F3638C51D52E1A6007E3ED5 /* UIFont+JCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+JCAdditions.m"; path = "../../../HK-Controller-iOS/Source/HKConnect/JBLController/UIFont+JCAdditions.m"; sourceTree = "<group>"; };
+		3F3638C81D52E357007E3ED5 /* FFMpegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFMpegViewController.h; sourceTree = "<group>"; };
+		3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFMpegViewController.m; sourceTree = "<group>"; };
 		3F7FDF2A1D4F453D00E04DA1 /* YYPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7FDF2E1D4F453D00E04DA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F7FDF301D4F453D00E04DA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -213,6 +229,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3638BA1D51BDA8007E3ED5 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				3F3638BB1D51BDD4007E3ED5 /* YYNavigationController.h */,
+				3F3638C21D52E1A6007E3ED5 /* UIColor+JCAdditions.h */,
+				3F3638C31D52E1A6007E3ED5 /* UIColor+JCAdditions.m */,
+				3F3638C41D52E1A6007E3ED5 /* UIFont+JCAdditions.h */,
+				3F3638C51D52E1A6007E3ED5 /* UIFont+JCAdditions.m */,
+				3F3638BC1D51BDD4007E3ED5 /* YYNavigationController.m */,
+			);
+			name = "UI Elements";
+			sourceTree = "<group>";
+		};
 		3F7FDF211D4F453D00E04DA1 = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +263,7 @@
 		3F7FDF2C1D4F453D00E04DA1 /* YYPlay */ = {
 			isa = PBXGroup;
 			children = (
+				3F3638BA1D51BDA8007E3ED5 /* UI Elements */,
 				3FA8B1611D50EB8E009AE276 /* FFmpeg-iOS */,
 				3FA8B0CC1D50BE88009AE276 /* Player */,
 				3FA8B0C91D503179009AE276 /* Resource */,
@@ -253,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				3F7FDF2E1D4F453D00E04DA1 /* main.m */,
+				3F3638C11D51DC61007E3ED5 /* YYPlay.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -268,6 +299,10 @@
 				3FA8B0BE1D4F56EB009AE276 /* LeftSideMenuViewController.m */,
 				3FA8B0C61D4F5C9A009AE276 /* SideMenuContentViewController.h */,
 				3FA8B0C71D4F5C9A009AE276 /* SideMenuContentViewController.m */,
+				3F3638BE1D51C15A007E3ED5 /* SettingViewController.h */,
+				3F3638BF1D51C15A007E3ED5 /* SettingViewController.m */,
+				3F3638C81D52E357007E3ED5 /* FFMpegViewController.h */,
+				3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */,
 			);
 			name = SideMenu;
 			sourceTree = "<group>";
@@ -629,6 +664,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3638C61D52E1A6007E3ED5 /* UIColor+JCAdditions.m in Sources */,
 				3F7FDF351D4F453D00E04DA1 /* MainViewController.m in Sources */,
 				3FA8B0C81D4F5C9A009AE276 /* SideMenuContentViewController.m in Sources */,
 				3F7FDF321D4F453D00E04DA1 /* AppDelegate.m in Sources */,
@@ -637,7 +673,11 @@
 				3FA8B1601D50E19D009AE276 /* YYPlayer.cpp in Sources */,
 				3FA8B0C41D4F5ABC009AE276 /* DEMOFirstViewController.m in Sources */,
 				3FA8B0BF1D4F56EB009AE276 /* LeftSideMenuViewController.m in Sources */,
+				3F3638CA1D52E358007E3ED5 /* FFMpegViewController.m in Sources */,
+				3F3638C71D52E1A6007E3ED5 /* UIFont+JCAdditions.m in Sources */,
 				3FA8B0C51D4F5ABC009AE276 /* DEMOSecondViewController.m in Sources */,
+				3F3638C01D51C15A007E3ED5 /* SettingViewController.m in Sources */,
+				3F3638BD1D51BDD4007E3ED5 /* YYNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,6 +785,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/YYPlay/YYPlay.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -772,6 +814,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/YYPlay/YYPlay.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
