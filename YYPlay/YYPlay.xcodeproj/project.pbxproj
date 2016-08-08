@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F31AF181D54722500DF66C8 /* FFMpegDecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F31AF171D54722500DF66C8 /* FFMpegDecodeViewController.m */; };
+		3F31AF1A1D5472D500DF66C8 /* resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F31AF191D5472D500DF66C8 /* resource.bundle */; };
 		3F3638BD1D51BDD4007E3ED5 /* YYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638BC1D51BDD4007E3ED5 /* YYNavigationController.m */; };
 		3F3638C01D51C15A007E3ED5 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638BF1D51C15A007E3ED5 /* SettingViewController.m */; };
 		3F3638C61D52E1A6007E3ED5 /* UIColor+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638C31D52E1A6007E3ED5 /* UIColor+JCAdditions.m */; };
@@ -44,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F31AF161D54722500DF66C8 /* FFMpegDecodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFMpegDecodeViewController.h; sourceTree = "<group>"; };
+		3F31AF171D54722500DF66C8 /* FFMpegDecodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFMpegDecodeViewController.m; sourceTree = "<group>"; };
+		3F31AF191D5472D500DF66C8 /* resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = resource.bundle; path = ../../../simplest_ffmpeg_mobile/simplest_ffmpeg_ios_decoder/resource.bundle; sourceTree = "<group>"; };
 		3F3638BB1D51BDD4007E3ED5 /* YYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYNavigationController.h; sourceTree = "<group>"; };
 		3F3638BC1D51BDD4007E3ED5 /* YYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYNavigationController.m; sourceTree = "<group>"; };
 		3F3638BE1D51C15A007E3ED5 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -229,6 +234,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F31AF151D5471D500DF66C8 /* FFMpegExample */ = {
+			isa = PBXGroup;
+			children = (
+				3F31AF161D54722500DF66C8 /* FFMpegDecodeViewController.h */,
+				3F31AF171D54722500DF66C8 /* FFMpegDecodeViewController.m */,
+				3F3638C81D52E357007E3ED5 /* FFMpegViewController.h */,
+				3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */,
+			);
+			name = FFMpegExample;
+			sourceTree = "<group>";
+		};
 		3F3638BA1D51BDA8007E3ED5 /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,8 +317,7 @@
 				3FA8B0C71D4F5C9A009AE276 /* SideMenuContentViewController.m */,
 				3F3638BE1D51C15A007E3ED5 /* SettingViewController.h */,
 				3F3638BF1D51C15A007E3ED5 /* SettingViewController.m */,
-				3F3638C81D52E357007E3ED5 /* FFMpegViewController.h */,
-				3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */,
+				3F31AF151D5471D500DF66C8 /* FFMpegExample */,
 			);
 			name = SideMenu;
 			sourceTree = "<group>";
@@ -310,6 +325,7 @@
 		3FA8B0C91D503179009AE276 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3F31AF191D5472D500DF66C8 /* resource.bundle */,
 				3F7FDF391D4F453D00E04DA1 /* Assets.xcassets */,
 				3FA8B0CA1D5031A9009AE276 /* Image.xcassets */,
 			);
@@ -606,6 +622,7 @@
 				3F7FDF3D1D4F453D00E04DA1 /* LaunchScreen.storyboard in Resources */,
 				3FA8B0CB1D5031A9009AE276 /* Image.xcassets in Resources */,
 				3F7FDF3A1D4F453D00E04DA1 /* Assets.xcassets in Resources */,
+				3F31AF1A1D5472D500DF66C8 /* resource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +683,7 @@
 			files = (
 				3F3638C61D52E1A6007E3ED5 /* UIColor+JCAdditions.m in Sources */,
 				3F7FDF351D4F453D00E04DA1 /* MainViewController.m in Sources */,
+				3F31AF181D54722500DF66C8 /* FFMpegDecodeViewController.m in Sources */,
 				3FA8B0C81D4F5C9A009AE276 /* SideMenuContentViewController.m in Sources */,
 				3F7FDF321D4F453D00E04DA1 /* AppDelegate.m in Sources */,
 				3F7FDF2F1D4F453D00E04DA1 /* main.m in Sources */,

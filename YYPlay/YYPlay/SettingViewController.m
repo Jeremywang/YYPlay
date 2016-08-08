@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "FFMpegViewController.h"
+#import "FFMpegDecodeViewController.h"
 
 @interface SettingViewController (){
     UITableView *_tableView;
@@ -25,14 +26,14 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftSideMenuBTN"] style:UIBarButtonItemStylePlain target:self action:@selector(presentLeftMenuViewController:)];
     
-    _menuItem = @[@"FFMpeg"];
+    _menuItem = @[@"FFMpeg Detail", @"FFMpeg Decoder Example"];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     [_tableView setDataSource:self];
     [_tableView setDelegate:self];
     [_tableView setBackgroundColor:[UIColor clearColor]];
     [_tableView setAllowsSelection:YES];
-    [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLineEtched];
+    [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     
     [self.view addSubview:_tableView];
     [self.view setBackgroundColor:[UIColor jc_silverColor]];
@@ -92,6 +93,12 @@
         {
             FFMpegViewController *ffmpegVC = [[FFMpegViewController alloc] init];
             [self.navigationController pushViewController:ffmpegVC animated:YES];
+            break;
+        }
+        case 1:
+        {
+            FFMpegDecodeViewController *decodeVC = [[FFMpegDecodeViewController alloc] init];
+            [self.navigationController pushViewController:decodeVC animated:YES];
             break;
         }
         default:

@@ -28,7 +28,7 @@
     }
     
     UINavigationBar *navigationBar = self.navigationBar;
-    navigationBar.barTintColor = [UIColor orangeColor];
+    navigationBar.barTintColor = [UIColor jc_tomatoColor];
     navigationBar.tintColor = [UIColor whiteColor];
     navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:21.0f]};
     
