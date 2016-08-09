@@ -9,6 +9,7 @@
 #import "SettingViewController.h"
 #import "FFMpegViewController.h"
 #import "FFMpegDecodeViewController.h"
+#import "FFMpegPushStreamViewController.h"
 
 @interface SettingViewController (){
     UITableView *_tableView;
@@ -26,7 +27,7 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftSideMenuBTN"] style:UIBarButtonItemStylePlain target:self action:@selector(presentLeftMenuViewController:)];
     
-    _menuItem = @[@"FFMpeg Detail", @"FFMpeg Decoder Example"];
+    _menuItem = @[@"FFMpeg Detail", @"FFMpeg Decoder Example", @"FFMpeg Push Stream"];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     [_tableView setDataSource:self];
@@ -99,6 +100,12 @@
         {
             FFMpegDecodeViewController *decodeVC = [[FFMpegDecodeViewController alloc] init];
             [self.navigationController pushViewController:decodeVC animated:YES];
+            break;
+        }
+        case 2:
+        {
+            FFMpegPushStreamViewController *pushStreamVC = [[FFMpegPushStreamViewController alloc] init];
+            [self.navigationController pushViewController:pushStreamVC animated:YES];
             break;
         }
         default:
