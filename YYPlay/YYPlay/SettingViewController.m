@@ -10,6 +10,9 @@
 #import "FFMpegViewController.h"
 #import "FFMpegDecodeViewController.h"
 #import "FFMpegPushStreamViewController.h"
+#import "JAVPlayerViewController.h"
+#import "MPPlayerViewController.h"
+#import "SystemAVPlayerViewController.h"
 
 @interface SettingViewController (){
     UITableView *_tableView;
@@ -27,7 +30,7 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftSideMenuBTN"] style:UIBarButtonItemStylePlain target:self action:@selector(presentLeftMenuViewController:)];
     
-    _menuItem = @[@"FFMpeg Detail", @"FFMpeg Decoder Example", @"FFMpeg Push Stream"];
+    _menuItem = @[@"FFMpeg Detail", @"FFMpeg Decoder Example", @"FFMpeg Push Stream", @"System AV Player", @"System MP Player"];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     [_tableView setDataSource:self];
@@ -106,6 +109,19 @@
         {
             FFMpegPushStreamViewController *pushStreamVC = [[FFMpegPushStreamViewController alloc] init];
             [self.navigationController pushViewController:pushStreamVC animated:YES];
+            break;
+        }
+        case 3:
+        {
+            SystemAVPlayerViewController *avVC = [[SystemAVPlayerViewController alloc] init];
+            avVC.parentVc = self;
+            [self presentViewController:avVC animated:YES completion:nil];
+            break;
+        }
+        case 4:
+        {
+            MPPlayerViewController *mpVC = [[MPPlayerViewController alloc] init];
+            [self presentViewController:mpVC animated:YES completion:nil];
             break;
         }
         default:

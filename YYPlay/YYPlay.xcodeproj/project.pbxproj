@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		3F04CB161D597D2400FA51F9 /* resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F04CB151D597D2400FA51F9 /* resource.bundle */; };
 		3F04CB191D597D6600FA51F9 /* FFMpegPushStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F04CB181D597D6600FA51F9 /* FFMpegPushStreamViewController.m */; };
+		3F24D9251D61CE2100407FF9 /* UIColor+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F24D9221D61CE2100407FF9 /* UIColor+JCAdditions.m */; };
+		3F24D9261D61CE2100407FF9 /* UIFont+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F24D9241D61CE2100407FF9 /* UIFont+JCAdditions.m */; };
 		3F31AF181D54722500DF66C8 /* FFMpegDecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F31AF171D54722500DF66C8 /* FFMpegDecodeViewController.m */; };
 		3F3638BD1D51BDD4007E3ED5 /* YYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638BC1D51BDD4007E3ED5 /* YYNavigationController.m */; };
 		3F3638C01D51C15A007E3ED5 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638BF1D51C15A007E3ED5 /* SettingViewController.m */; };
-		3F3638C61D52E1A6007E3ED5 /* UIColor+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638C31D52E1A6007E3ED5 /* UIColor+JCAdditions.m */; };
-		3F3638C71D52E1A6007E3ED5 /* UIFont+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638C51D52E1A6007E3ED5 /* UIFont+JCAdditions.m */; };
 		3F3638CA1D52E358007E3ED5 /* FFMpegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */; };
+		3F4B1D1A1D67056700F0EB21 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4B1D191D67056700F0EB21 /* IJKMediaFramework.framework */; };
+		3F4B1D1D1D67063700F0EB21 /* JAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B1D1C1D67063700F0EB21 /* JAVPlayerViewController.m */; };
+		3F4B1D221D670E6300F0EB21 /* MPPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B1D211D670E6300F0EB21 /* MPPlayerViewController.m */; };
+		3F4B1D251D6AA1A800F0EB21 /* SystemAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B1D241D6AA1A800F0EB21 /* SystemAVPlayerViewController.m */; };
 		3F7FDF2F1D4F453D00E04DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF2E1D4F453D00E04DA1 /* main.m */; };
 		3F7FDF321D4F453D00E04DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF311D4F453D00E04DA1 /* AppDelegate.m */; };
 		3F7FDF351D4F453D00E04DA1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF341D4F453D00E04DA1 /* MainViewController.m */; };
@@ -36,7 +40,6 @@
 		3FA8B15D1D50DFBB009AE276 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA8B15C1D50DFBB009AE276 /* AudioToolbox.framework */; };
 		3FA8B1601D50E19D009AE276 /* YYPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8B15E1D50E19D009AE276 /* YYPlayer.cpp */; };
 		3FA8B1D91D50EB8E009AE276 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA8B1D21D50EB8E009AE276 /* libavcodec.a */; };
-		3FA8B1DA1D50EB8E009AE276 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA8B1D31D50EB8E009AE276 /* libavdevice.a */; };
 		3FA8B1DB1D50EB8E009AE276 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA8B1D41D50EB8E009AE276 /* libavfilter.a */; };
 		3FA8B1DC1D50EB8E009AE276 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA8B1D51D50EB8E009AE276 /* libavformat.a */; };
 		3FA8B1DD1D50EB8E009AE276 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA8B1D61D50EB8E009AE276 /* libavutil.a */; };
@@ -50,6 +53,10 @@
 		3F04CB151D597D2400FA51F9 /* resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resource.bundle; sourceTree = "<group>"; };
 		3F04CB171D597D6600FA51F9 /* FFMpegPushStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFMpegPushStreamViewController.h; sourceTree = "<group>"; };
 		3F04CB181D597D6600FA51F9 /* FFMpegPushStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFMpegPushStreamViewController.m; sourceTree = "<group>"; };
+		3F24D9211D61CE2100407FF9 /* UIColor+JCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JCAdditions.h"; sourceTree = "<group>"; };
+		3F24D9221D61CE2100407FF9 /* UIColor+JCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JCAdditions.m"; sourceTree = "<group>"; };
+		3F24D9231D61CE2100407FF9 /* UIFont+JCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+JCAdditions.h"; sourceTree = "<group>"; };
+		3F24D9241D61CE2100407FF9 /* UIFont+JCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+JCAdditions.m"; sourceTree = "<group>"; };
 		3F31AF161D54722500DF66C8 /* FFMpegDecodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFMpegDecodeViewController.h; sourceTree = "<group>"; };
 		3F31AF171D54722500DF66C8 /* FFMpegDecodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFMpegDecodeViewController.m; sourceTree = "<group>"; };
 		3F3638BB1D51BDD4007E3ED5 /* YYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYNavigationController.h; sourceTree = "<group>"; };
@@ -57,12 +64,15 @@
 		3F3638BE1D51C15A007E3ED5 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		3F3638BF1D51C15A007E3ED5 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		3F3638C11D51DC61007E3ED5 /* YYPlay.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYPlay.pch; sourceTree = "<group>"; };
-		3F3638C21D52E1A6007E3ED5 /* UIColor+JCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+JCAdditions.h"; path = "../../../HK-Controller-iOS/Source/HKConnect/JBLController/UIColor+JCAdditions.h"; sourceTree = "<group>"; };
-		3F3638C31D52E1A6007E3ED5 /* UIColor+JCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+JCAdditions.m"; path = "../../../HK-Controller-iOS/Source/HKConnect/JBLController/UIColor+JCAdditions.m"; sourceTree = "<group>"; };
-		3F3638C41D52E1A6007E3ED5 /* UIFont+JCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+JCAdditions.h"; path = "../../../HK-Controller-iOS/Source/HKConnect/JBLController/UIFont+JCAdditions.h"; sourceTree = "<group>"; };
-		3F3638C51D52E1A6007E3ED5 /* UIFont+JCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+JCAdditions.m"; path = "../../../HK-Controller-iOS/Source/HKConnect/JBLController/UIFont+JCAdditions.m"; sourceTree = "<group>"; };
 		3F3638C81D52E357007E3ED5 /* FFMpegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFMpegViewController.h; sourceTree = "<group>"; };
 		3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFMpegViewController.m; sourceTree = "<group>"; };
+		3F4B1D191D67056700F0EB21 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		3F4B1D1B1D67063700F0EB21 /* JAVPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAVPlayerViewController.h; sourceTree = "<group>"; };
+		3F4B1D1C1D67063700F0EB21 /* JAVPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAVPlayerViewController.m; sourceTree = "<group>"; };
+		3F4B1D201D670E6300F0EB21 /* MPPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPlayerViewController.h; sourceTree = "<group>"; };
+		3F4B1D211D670E6300F0EB21 /* MPPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPlayerViewController.m; sourceTree = "<group>"; };
+		3F4B1D231D6AA1A800F0EB21 /* SystemAVPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemAVPlayerViewController.h; sourceTree = "<group>"; };
+		3F4B1D241D6AA1A800F0EB21 /* SystemAVPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemAVPlayerViewController.m; sourceTree = "<group>"; };
 		3F7FDF2A1D4F453D00E04DA1 /* YYPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7FDF2E1D4F453D00E04DA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F7FDF301D4F453D00E04DA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,8 +118,6 @@
 		3FA8B1711D50EB8E009AE276 /* videotoolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videotoolbox.h; sourceTree = "<group>"; };
 		3FA8B1721D50EB8E009AE276 /* vorbis_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vorbis_parser.h; sourceTree = "<group>"; };
 		3FA8B1731D50EB8E009AE276 /* xvmc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xvmc.h; sourceTree = "<group>"; };
-		3FA8B1751D50EB8E009AE276 /* avdevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avdevice.h; sourceTree = "<group>"; };
-		3FA8B1761D50EB8E009AE276 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		3FA8B1781D50EB8E009AE276 /* avfilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avfilter.h; sourceTree = "<group>"; };
 		3FA8B1791D50EB8E009AE276 /* avfiltergraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avfiltergraph.h; sourceTree = "<group>"; };
 		3FA8B17A1D50EB8E009AE276 /* buffersink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffersink.h; sourceTree = "<group>"; };
@@ -196,7 +204,6 @@
 		3FA8B1CF1D50EB8E009AE276 /* swscale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swscale.h; sourceTree = "<group>"; };
 		3FA8B1D01D50EB8E009AE276 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		3FA8B1D21D50EB8E009AE276 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
-		3FA8B1D31D50EB8E009AE276 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavdevice.a; sourceTree = "<group>"; };
 		3FA8B1D41D50EB8E009AE276 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
 		3FA8B1D51D50EB8E009AE276 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
 		3FA8B1D61D50EB8E009AE276 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
@@ -229,7 +236,7 @@
 				3FA8B1DF1D50EB8E009AE276 /* libswscale.a in Frameworks */,
 				3FA8B1D91D50EB8E009AE276 /* libavcodec.a in Frameworks */,
 				3FA8B14D1D50DF5F009AE276 /* CoreMedia.framework in Frameworks */,
-				3FA8B1DA1D50EB8E009AE276 /* libavdevice.a in Frameworks */,
+				3F4B1D1A1D67056700F0EB21 /* IJKMediaFramework.framework in Frameworks */,
 				5769DB0E877ED21717F8ACF4 /* libPods-YYPlay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +253,12 @@
 				3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */,
 				3F04CB171D597D6600FA51F9 /* FFMpegPushStreamViewController.h */,
 				3F04CB181D597D6600FA51F9 /* FFMpegPushStreamViewController.m */,
+				3F4B1D1B1D67063700F0EB21 /* JAVPlayerViewController.h */,
+				3F4B1D1C1D67063700F0EB21 /* JAVPlayerViewController.m */,
+				3F4B1D201D670E6300F0EB21 /* MPPlayerViewController.h */,
+				3F4B1D211D670E6300F0EB21 /* MPPlayerViewController.m */,
+				3F4B1D231D6AA1A800F0EB21 /* SystemAVPlayerViewController.h */,
+				3F4B1D241D6AA1A800F0EB21 /* SystemAVPlayerViewController.m */,
 			);
 			name = FFMpegExample;
 			sourceTree = "<group>";
@@ -254,11 +267,11 @@
 			isa = PBXGroup;
 			children = (
 				3F3638BB1D51BDD4007E3ED5 /* YYNavigationController.h */,
-				3F3638C21D52E1A6007E3ED5 /* UIColor+JCAdditions.h */,
-				3F3638C31D52E1A6007E3ED5 /* UIColor+JCAdditions.m */,
-				3F3638C41D52E1A6007E3ED5 /* UIFont+JCAdditions.h */,
-				3F3638C51D52E1A6007E3ED5 /* UIFont+JCAdditions.m */,
 				3F3638BC1D51BDD4007E3ED5 /* YYNavigationController.m */,
+				3F24D9211D61CE2100407FF9 /* UIColor+JCAdditions.h */,
+				3F24D9221D61CE2100407FF9 /* UIColor+JCAdditions.m */,
+				3F24D9231D61CE2100407FF9 /* UIFont+JCAdditions.h */,
+				3F24D9241D61CE2100407FF9 /* UIFont+JCAdditions.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -361,7 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				3FA8B1631D50EB8E009AE276 /* libavcodec */,
-				3FA8B1741D50EB8E009AE276 /* libavdevice */,
 				3FA8B1771D50EB8E009AE276 /* libavfilter */,
 				3FA8B17D1D50EB8E009AE276 /* libavformat */,
 				3FA8B1811D50EB8E009AE276 /* libavutil */,
@@ -392,15 +404,6 @@
 				3FA8B1731D50EB8E009AE276 /* xvmc.h */,
 			);
 			path = libavcodec;
-			sourceTree = "<group>";
-		};
-		3FA8B1741D50EB8E009AE276 /* libavdevice */ = {
-			isa = PBXGroup;
-			children = (
-				3FA8B1751D50EB8E009AE276 /* avdevice.h */,
-				3FA8B1761D50EB8E009AE276 /* version.h */,
-			);
-			path = libavdevice;
 			sourceTree = "<group>";
 		};
 		3FA8B1771D50EB8E009AE276 /* libavfilter */ = {
@@ -527,7 +530,6 @@
 			isa = PBXGroup;
 			children = (
 				3FA8B1D21D50EB8E009AE276 /* libavcodec.a */,
-				3FA8B1D31D50EB8E009AE276 /* libavdevice.a */,
 				3FA8B1D41D50EB8E009AE276 /* libavfilter.a */,
 				3FA8B1D51D50EB8E009AE276 /* libavformat.a */,
 				3FA8B1D61D50EB8E009AE276 /* libavutil.a */,
@@ -552,6 +554,7 @@
 				3FA8B15C1D50DFBB009AE276 /* AudioToolbox.framework */,
 				3FA8B15A1D50DFB2009AE276 /* AVFoundation.framework */,
 				3FA8B1581D50DFA8009AE276 /* libbz2.1.0.tbd */,
+				3F4B1D191D67056700F0EB21 /* IJKMediaFramework.framework */,
 				3FA8B1561D50DF9F009AE276 /* libz.tbd */,
 				3FA8B1541D50DF95009AE276 /* libiconv.tbd */,
 				3FA8B1521D50DF80009AE276 /* Foundation.framework */,
@@ -686,19 +689,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F3638C61D52E1A6007E3ED5 /* UIColor+JCAdditions.m in Sources */,
+				3F4B1D221D670E6300F0EB21 /* MPPlayerViewController.m in Sources */,
 				3F7FDF351D4F453D00E04DA1 /* MainViewController.m in Sources */,
 				3F31AF181D54722500DF66C8 /* FFMpegDecodeViewController.m in Sources */,
 				3FA8B0C81D4F5C9A009AE276 /* SideMenuContentViewController.m in Sources */,
 				3F7FDF321D4F453D00E04DA1 /* AppDelegate.m in Sources */,
+				3F4B1D251D6AA1A800F0EB21 /* SystemAVPlayerViewController.m in Sources */,
 				3F7FDF2F1D4F453D00E04DA1 /* main.m in Sources */,
+				3F4B1D1D1D67063700F0EB21 /* JAVPlayerViewController.m in Sources */,
 				3F04CB191D597D6600FA51F9 /* FFMpegPushStreamViewController.m in Sources */,
+				3F24D9251D61CE2100407FF9 /* UIColor+JCAdditions.m in Sources */,
 				3FA8B1E21D50EF4A009AE276 /* YYMiniPlayerView.m in Sources */,
 				3FA8B1601D50E19D009AE276 /* YYPlayer.cpp in Sources */,
 				3FA8B0C41D4F5ABC009AE276 /* DEMOFirstViewController.m in Sources */,
 				3FA8B0BF1D4F56EB009AE276 /* LeftSideMenuViewController.m in Sources */,
+				3F24D9261D61CE2100407FF9 /* UIFont+JCAdditions.m in Sources */,
 				3F3638CA1D52E358007E3ED5 /* FFMpegViewController.m in Sources */,
-				3F3638C71D52E1A6007E3ED5 /* UIFont+JCAdditions.m in Sources */,
 				3FA8B0C51D4F5ABC009AE276 /* DEMOSecondViewController.m in Sources */,
 				3F3638C01D51C15A007E3ED5 /* SettingViewController.m in Sources */,
 				3F3638BD1D51BDD4007E3ED5 /* YYNavigationController.m in Sources */,
@@ -809,6 +815,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/YYPlay/YYPlay.pch";
 				HEADER_SEARCH_PATHS = (
@@ -838,6 +848,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/YYPlay/YYPlay.pch";
 				HEADER_SEARCH_PATHS = (

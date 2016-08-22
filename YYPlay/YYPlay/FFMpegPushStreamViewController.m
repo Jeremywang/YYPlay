@@ -26,7 +26,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     _fileNameLabel = [UILabel new];
-    _fileNameLabel.text = @"sintel.mov";
+    _fileNameLabel.text = @"war3end.mp4";
     [_fileNameLabel setBackgroundColor:[UIColor whiteColor]];
     [_fileNameLabel setTextColor:[UIColor jc_slateGreyColor]];
     [_fileNameLabel setTextAlignment:NSTextAlignmentCenter];
@@ -162,6 +162,10 @@
             goto end;
         }
     }
+    
+    ofmt_ctx->duration = ifmt_ctx->duration;
+    ofmt_ctx->packet_size = ifmt_ctx->packet_size;
+    ofmt_ctx->bit_rate = ifmt_ctx->bit_rate;
     
     ret = avformat_write_header(ofmt_ctx, NULL);
     if (ret < 0) {

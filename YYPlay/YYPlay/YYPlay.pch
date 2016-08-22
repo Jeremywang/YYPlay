@@ -11,6 +11,9 @@
 
 
 #ifdef __OBJC__
+#import <IJKMediaFramework/IJKAVMoviePlayerController.h>
+#import <IJKMediaFramework/IJKMPMoviePlayerController.h>
+#import <IJKMediaFramework/IJKFFMoviePlayerController.h>
 #import <Masonry/Masonry.h>
 #import <RESideMenu/RESideMenu.h>
 #import "UIColor+JCAdditions.h"
@@ -28,5 +31,13 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #endif
 #define MiniPlayerViewHeight    54
+
+//Screen
+#define SCREEN_SIZE          [[UIScreen mainScreen] bounds].size
+#define SCREEN_WIDTH         [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT        [[UIScreen mainScreen] bounds].size.height
+
+#define VEDIOSCREEN_HEIGHT   240
+#define TestVedioURL         @"http://192.168.110.161/2.mp4"
 
 #endif /* YYPlay_pch */

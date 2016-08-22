@@ -716,6 +716,11 @@ typedef struct AVInputFormat {
     int (*read_header)(struct AVFormatContext *);
 
     /**
+     * Used by format which open further nested input.
+     */
+    int (*read_header2)(struct AVFormatContext *, AVDictionary **options);
+
+    /**
      * Read one packet and put it in 'pkt'. pts and flags are also
      * set. 'avformat_new_stream' can be called only if the flag
      * AVFMTCTX_NOHEADER is used and only in the calling thread (not in a
@@ -985,6 +990,17 @@ typedef struct AVStream {
     int event_flags;
 #define AVSTREAM_EVENT_FLAG_METADATA_UPDATED 0x0001 ///< The call resulted in updated metadata.
 
+    /*
+     * Codec parameters associated with this stream. Allocated and freed by
+     * libavformat in avformat_new_stream() and avformat_free_context()
+     * respectively.
+     *
+     * - demuxing: filled by libavformat on stream creation or in
+     *             avformat_find_stream_info()
+     * - muxing: filled by the caller before avformat_write_header()
+     */
+    AVCodecParameters *codecpar;
+
     /*****************************************************************
      * All fields below this line are not part of the public API. They
      * may not be used outside of libavformat and can be changed and
@@ -1206,17 +1222,6 @@ typedef struct AVStream {
      * Must not be accessed in any way by callers.
      */
     AVStreamInternal *internal;
-
-    /*
-     * Codec parameters associated with this stream. Allocated and freed by
-     * libavformat in avformat_new_stream() and avformat_free_context()
-     * respectively.
-     *
-     * - demuxing: filled by libavformat on stream creation or in
-     *             avformat_find_stream_info()
-     * - muxing: filled by the caller before avformat_write_header()
-     */
-    AVCodecParameters *codecpar;
 } AVStream;
 
 AVRational av_stream_get_r_frame_rate(const AVStream *s);
