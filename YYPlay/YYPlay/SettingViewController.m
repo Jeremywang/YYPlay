@@ -116,6 +116,7 @@
             SystemAVPlayerViewController *avVC = [[SystemAVPlayerViewController alloc] init];
             avVC.parentVc = self;
             [self presentViewController:avVC animated:YES completion:nil];
+            //[self.navigationController pushViewController:avVC animated:YES];
             break;
         }
         case 4:
@@ -127,6 +128,37 @@
         default:
             break;
     }
+}
+
+
+// 哪些页面支持自动转屏
+- (BOOL)shouldAutorotate{
+    
+    UINavigationController *nav = self.navigationController;
+    
+    // MoviePlayerViewController 、ZFTableViewController 控制器支持自动转屏
+    if ([nav.topViewController isKindOfClass:[SystemAVPlayerViewController class]]) {
+        // 调用ZFPlayerSingleton单例记录播放状态是否锁定屏幕方向
+        return !YYAvplayerShared.isLockScreen;
+    }
+    return NO;
+}
+
+// viewcontroller支持哪些转屏方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    
+    UINavigationController *nav = self.navigationController;
+    if ([nav.topViewController isKindOfClass:[SystemAVPlayerViewController class]]) { // MoviePlayerViewController这个页面支持转屏方向
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }else if ([nav.topViewController isKindOfClass:[MPPlayerViewController class]]) { // ZFTableViewController这个页面支持转屏方向
+        if (YYAvplayerShared.isAllowLandscape) {
+            return UIInterfaceOrientationMaskAllButUpsideDown;
+        }else {
+            return UIInterfaceOrientationMaskPortrait;
+        }
+    }
+    // 其他页面
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

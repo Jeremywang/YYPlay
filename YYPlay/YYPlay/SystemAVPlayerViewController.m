@@ -8,24 +8,112 @@
 
 #import "SystemAVPlayerViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "YYAvplayer.h"
 
 @interface SystemAVPlayerViewController ()
 
-@property (nonatomic, strong) AVPlayer *player;
-@property (nonatomic, strong) UIView *container;
-@property (nonatomic, strong) UIButton *playOrPause;
-@property (nonatomic, strong) UIProgressView *progress;
-@property (nonatomic, strong) UIButton *backBTN;
+@property (nonatomic, strong) YYAvplayerView *playerContainer;
+@property (nonatomic, strong) NSURL          *linkURL;
+/** 离开页面时候是否在播放 */
+@property (nonatomic, assign) BOOL isPlaying;
+
 
 @end
 
 @implementation SystemAVPlayerViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // 调用playerView的layoutSubviews方法
+    if (self.playerContainer) {
+        [self.playerContainer setNeedsLayout];
+    }
+    // pop回来时候是否自动播放
+    if (self.navigationController.viewControllers.count == 2 && self.playerContainer && self.isPlaying) {
+        self.isPlaying = NO;
+        [self.playerContainer play];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    // push出下一级页面时候暂停
+    if (self.navigationController.viewControllers.count == 3 && self.playerContainer && !self.playerContainer.isPauseByUser)
+    {
+        self.isPlaying = YES;
+        [self.playerContainer pause];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setupUI];
-//    [self.player play];
+    //if use Masonry,Please open this annotation
+    
+     self.playerContainer = [[YYAvplayerView alloc] init];
+     [self.view addSubview:self.playerContainer];
+     [self.playerContainer mas_makeConstraints:^(MASConstraintMaker *make) {
+     make.top.equalTo(self.view).offset(0);
+     make.left.right.equalTo(self.view);
+     // 注意此处，宽高比16：9优先级比1000低就行，在因为iPhone 4S宽高比不是16：9
+     make.height.equalTo(self.playerContainer.mas_width).multipliedBy(9.0f/16.0f).with.priority(750);
+     }];
+    
+    
+    // 设置播放前的占位图（需要在设置视频URL之前设置）
+    self.playerContainer.placeholderImageName = @"loading_bgView1";
+    // 设置视频的URL
+    self.playerContainer.videoURL = self.linkURL;
+    // 设置标题
+    self.playerContainer.title = @"可以设置视频的标题";
+    //（可选设置）可以设置视频的填充模式，内部设置默认（ZFPlayerLayerGravityResizeAspect：等比例填充，直到一个维度到达区域边界）
+    self.playerContainer.playerLayerGravity = YYAvplayerLayerGravityResizeAspect;
+    
+    // 打开下载功能（默认没有这个功能）
+    self.playerContainer.hasDownload = YES;
+    // 下载按钮的回调
+    self.playerContainer.downloadBlock = ^(NSString *urlStr) {
+        // 此处是截取的下载地址，可以自己根据服务器的视频名称来赋值
+//        NSString *name = [urlStr lastPathComponent];
+//        [[ZFDownloadManager sharedDownloadManager] downFileUrl:urlStr filename:name fileimage:nil];
+//        // 设置最多同时下载个数（默认是3）
+//        [ZFDownloadManager sharedDownloadManager].maxCount = 1;
+    };
+    
+    // 如果想从xx秒开始播放视频
+    // self.playerView.seekTime = 15;
+    
+    // 是否自动播放，默认不自动播放
+    [self.playerContainer autoPlayTheVideo];
+    __weak typeof(self) weakSelf = self;
+    self.playerContainer.goBackBlock = ^{
+        //[weakSelf.navigationController popViewControllerAnimated:YES];
+        [weakSelf.parentVc dismissViewControllerAnimated:YES completion:nil];
+    };
+    
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+        self.view.backgroundColor = [UIColor whiteColor];
+        //if use Masonry,Please open this annotation
+        
+         [self.playerContainer mas_updateConstraints:^(MASConstraintMaker *make) {
+         make.top.equalTo(self.view).offset(0);
+         }];
+        
+    }else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        self.view.backgroundColor = [UIColor blackColor];
+        //if use Masonry,Please open this annotation
+        
+         [self.playerContainer mas_updateConstraints:^(MASConstraintMaker *make) {
+         make.top.equalTo(self.view).offset(0);
+         }];
+         
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,173 +130,40 @@
 
 - (void)dealloc
 {
-    [self removeObserverFromPlayerItem:self.player.currentItem];
-    [self removeNotifycation];
+    NSLog(@"%@释放了",self.class);
+    [self.playerContainer cancelAutoFadeOutControlBar];
 }
 
 - (void)setupUI
 {
     [self.view setBackgroundColor:[UIColor jc_silverColor]];
     self.edgesForExtendedLayout = UIRectEdgeTop;
-    
-    _container = [UIView new];
-    [self.view addSubview:_container];
-    
-    [_container mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
-        make.top.equalTo(self.view.mas_top);
-        make.right.equalTo(self.view.mas_right);
-        make.height.equalTo(@VEDIOSCREEN_HEIGHT);
-    }];
-    
-    
-    _playOrPause = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_playOrPause setImage:[UIImage imageNamed:@"playback_play"] forState:UIControlStateNormal];
-    [_playOrPause addTarget:self action:@selector(playBtnClick:) forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:_playOrPause];
-    [_playOrPause mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_container.mas_bottom).with.offset(10);
-        make.left.equalTo(self.view.mas_left).with.offset(10);
-        make.width.equalTo(@25);
-        make.height.equalTo(@25);
-    }];
-    
-    _progress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-    [self.view addSubview:_progress];
-    [_progress mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_playOrPause.mas_right).with.offset(10);
-        make.right.equalTo(self.view.mas_right).with.offset(-10);
-        make.centerY.equalTo(_playOrPause.mas_centerY);
-    }];
-    
-
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-    playerLayer.frame=CGRectMake(0, 0, SCREEN_WIDTH, VEDIOSCREEN_HEIGHT);
-    playerLayer.videoGravity=AVLayerVideoGravityResizeAspectFill;//视频填充模式
- 
-    [self.container.layer addSublayer:playerLayer];
-    
-    _backBTN =[UIButton buttonWithType:UIButtonTypeCustom];
-    [_backBTN setImage:[UIImage imageNamed:@"back_arrow_icon"] forState:UIControlStateNormal];
-    [_backBTN addTarget:self action:@selector(backBTNAction) forControlEvents:UIControlEventTouchDown];
-    [_container addSubview:_backBTN];
-    [_backBTN mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_container.mas_left).with.offset(10);
-        make.top.equalTo(_container.mas_top).with.offset(10);
-        make.width.equalTo(@10);
-        make.right.equalTo(@10);
-    }];
-}
 
-- (AVPlayer *)player
+//- (AVPlayer *)player
+//{
+//    if (!_player) {
+//
+//        _player = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithURL:self.linkURL]];
+//        [self addProgressObserver];
+//        [self addNotifyCation];
+//        [self addObserverToPlayItem:_player.currentItem];
+//    }
+//    return _player;
+//}
+
+- (NSURL *)linkURL
 {
-    if (!_player) {
+    if (!_linkURL) {
         NSString *urlStr = [NSString stringWithFormat:@"%@", TestVedioURL];
         urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-        NSURL *url = [NSURL URLWithString:urlStr];
-        _player = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithURL:url]];
-        [self addProgressObserver];
-        [self addNotifyCation];
-        [self addObserverToPlayItem:self.player.currentItem];
+        _linkURL = [NSURL URLWithString:urlStr];
     }
-    return _player;
+    return _linkURL;
 }
 
-- (void)addNotifyCation
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackFinished) name:AVPlayerItemDidPlayToEndTimeNotification object:self.player.currentItem];
-}
 
-- (void)removeNotifycation
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)playbackFinished
-{
-    NSLog(@"视频播放完成");
-}
-
-- (IBAction)playBtnClick:(UIButton *)sender
-{
-    if (self.player.rate == 0) { //Pause
-        [sender setImage:[UIImage imageNamed:@"playback_pause"] forState:UIControlStateNormal];
-        [self.player play];
-    } else if (self.player.rate == 1){ //playing
-        [sender setImage:[UIImage imageNamed:@"playback_play"] forState:UIControlStateNormal];
-        [self.player pause];
-    }
-}
-
-- (IBAction)backBTNAction
-{
-    [_parentVc dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)addProgressObserver
-{
-    AVPlayerItem *playerItem = self.player.currentItem;
-    UIProgressView *progress = self.progress;
-    [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-        float current = CMTimeGetSeconds(time);
-        float total = CMTimeGetSeconds([playerItem duration]);
-        NSLog(@"当前已经播放%.2fs.",current);
-        
-        if (current) {
-            [progress setProgress:(current/total) animated:YES];
-        }
-    }];
-}
-
-- (void)addObserverToPlayItem:(AVPlayerItem *)playerItem
-{
-    [playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-    [playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)removeObserverFromPlayerItem:(AVPlayerItem *)playerItem
-{
-    [playerItem removeObserver:self forKeyPath:@"status"];
-    [playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
-{
-    AVPlayerItem *playerItem = object;
-    if ([keyPath isEqualToString:@"status"]) {
-        AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
-        if (status == AVPlayerStatusReadyToPlay) {
-            NSLog(@"正在播放...，视频总长度:%.2f",CMTimeGetSeconds(playerItem.duration));
-        }
-    } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
-        NSArray *array = playerItem.loadedTimeRanges;
-        CMTimeRange timeRange = [array.firstObject CMTimeRangeValue];
-        float startSeconds = CMTimeGetSeconds(timeRange.start);
-        float durationSeconds = CMTimeGetSeconds(timeRange.duration);
-        NSTimeInterval totalBuffer = startSeconds + durationSeconds;//缓冲总长度
-        NSLog(@"共缓冲：%.2f",totalBuffer);
-    }
-}
-
-- (void)updateThumbailImage
-{
-    NSString *urlStr = [NSString stringWithFormat:@"%@", TestVedioURL];
-    urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    
-    AVAsset *asset = [AVAsset assetWithURL:url];
-    AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
-    CMTime time = CMTimeMake(5, 1);
-    CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-    UIImage *thumbnail = [UIImage imageWithCGImage:imageRef];
-
-    CGImageRelease(imageRef);
-}
 
 /*
 #pragma mark - Navigation
