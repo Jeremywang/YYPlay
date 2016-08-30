@@ -7,8 +7,10 @@
 //
 
 #import "SystemAVPlayerViewController.h"
+#import "FFMpegPushStreamViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "YYAvplayer.h"
+#import "AppDelegate.h"
 
 @interface SystemAVPlayerViewController ()
 
@@ -16,6 +18,8 @@
 @property (nonatomic, strong) NSURL          *linkURL;
 /** 离开页面时候是否在播放 */
 @property (nonatomic, assign) BOOL isPlaying;
+
+@property (nonatomic, strong) UIButton       *testBTN;
 
 
 @end
@@ -25,6 +29,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.hidden = YES;
+    
     // 调用playerView的layoutSubviews方法
     if (self.playerContainer) {
         [self.playerContainer setNeedsLayout];
@@ -34,6 +41,10 @@
         self.isPlaying = NO;
         [self.playerContainer play];
     }
+    
+    //改变AppDelegate的appdelegete.allowRotation属性
+    AppDelegate *appdelegete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelegete.allowRotation = YES;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -45,6 +56,9 @@
         self.isPlaying = YES;
         [self.playerContainer pause];
     }
+    
+    AppDelegate *appdelegete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelegete.allowRotation = NO;
 }
 
 - (void)viewDidLoad {
@@ -89,8 +103,8 @@
     [self.playerContainer autoPlayTheVideo];
     __weak typeof(self) weakSelf = self;
     self.playerContainer.goBackBlock = ^{
-        //[weakSelf.navigationController popViewControllerAnimated:YES];
-        [weakSelf.parentVc dismissViewControllerAnimated:YES completion:nil];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+        //[weakSelf.parentVc dismissViewControllerAnimated:YES completion:nil];
     };
     
 }
@@ -137,21 +151,28 @@
 - (void)setupUI
 {
     [self.view setBackgroundColor:[UIColor jc_silverColor]];
-    self.edgesForExtendedLayout = UIRectEdgeTop;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    
+    _testBTN = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_testBTN setTitle:@"Next Page" forState:UIControlStateNormal];
+    [_testBTN setBackgroundColor:[UIColor jc_tomatoColor]];
+    [_testBTN setTitleColor:[UIColor jc_whiteColor] forState:UIControlStateNormal];
+    [_testBTN addTarget:self action:@selector(nextPage:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:_testBTN];
+    [_testBTN mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(self.view);
+        make.height.mas_equalTo(40);
+        make.bottom.equalTo(self.view).with.offset(-MiniPlayerViewHeight);
+    }];
 }
 
-
-//- (AVPlayer *)player
-//{
-//    if (!_player) {
-//
-//        _player = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithURL:self.linkURL]];
-//        [self addProgressObserver];
-//        [self addNotifyCation];
-//        [self addObserverToPlayItem:_player.currentItem];
-//    }
-//    return _player;
-//}
+- (IBAction)nextPage:(id)sender
+{
+    FFMpegPushStreamViewController *pushStreamVC = [[FFMpegPushStreamViewController alloc] init];
+    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController pushViewController:pushStreamVC animated:YES];
+    
+}
 
 - (NSURL *)linkURL
 {

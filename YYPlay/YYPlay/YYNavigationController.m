@@ -7,6 +7,7 @@
 //
 
 #import "YYNavigationController.h"
+#import "SystemAVPlayerViewController.h"
 
 @interface YYNavigationController () {
     BOOL _setup;

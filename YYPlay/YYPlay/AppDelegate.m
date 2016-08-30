@@ -70,5 +70,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if (self.allowRotation) {//当允许时，支持所有方向
+        return UIInterfaceOrientationMaskAll;
+    }
+    //否则 就只有竖屏
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 @end

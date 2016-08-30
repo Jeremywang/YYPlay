@@ -18,6 +18,8 @@
 @property (strong, nonatomic) RESideMenu *menuController;
 @property (strong, nonatomic) SideMenuContentViewController *sideMenuContentVC;
 
+@property (nonatomic,assign)BOOL allowRotation;//这个属性标识屏幕是否允许旋转
+
 
 @end
 
