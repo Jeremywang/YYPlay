@@ -80,9 +80,9 @@
  */
 -(MPMoviePlayerController *)moviePlayer{
     if (!_moviePlayer) {
-        NSURL *url=[self getNetworkUrl];
+        NSURL *url=[self getFileUrl];
         _moviePlayer=[[MPMoviePlayerController alloc]initWithContentURL:url];
-        _moviePlayer.view.frame=self.view.bounds;
+        _moviePlayer.view.frame=CGRectMake(40, 80, 200, 400);  //self.view.bounds;
         _moviePlayer.view.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         [self.view addSubview:_moviePlayer.view];
     }

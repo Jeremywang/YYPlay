@@ -10,4 +10,6 @@
 
 @interface JAVPlayerViewController : UIViewController
 
+@property (nonatomic, strong) NSURL *playUrl;
+
 @end

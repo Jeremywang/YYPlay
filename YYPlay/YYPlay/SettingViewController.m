@@ -13,6 +13,7 @@
 #import "JAVPlayerViewController.h"
 #import "MPPlayerViewController.h"
 #import "SystemAVPlayerViewController.h"
+#import "LivePlayerViewController.h"
 
 @interface SettingViewController (){
     UITableView *_tableView;
@@ -30,7 +31,7 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftSideMenuBTN"] style:UIBarButtonItemStylePlain target:self action:@selector(presentLeftMenuViewController:)];
     
-    _menuItem = @[@"FFMpeg Detail", @"FFMpeg Decoder Example", @"FFMpeg Push Stream", @"System AV Player", @"System MP Player"];
+    _menuItem = @[@"FFMpeg Detail", @"FFMpeg Decoder Example", @"FFMpeg Push Stream", @"System AV Player", @"System MP Player", @"Live Player"];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     [_tableView setDataSource:self];
@@ -132,7 +133,21 @@
         case 4:
         {
             MPPlayerViewController *mpVC = [[MPPlayerViewController alloc] init];
-            [self presentViewController:mpVC animated:YES completion:nil];
+            //[self presentViewController:mpVC animated:YES completion:nil];
+            [self.navigationController pushViewController:mpVC animated:YES];
+            break;
+        }
+        case 5:
+        {
+            //LivePlayerViewController *liveVC = [LivePlayerViewController initWithURL:TestRtmpURL];
+            LivePlayerViewController *liveVC = [[LivePlayerViewController alloc] init];
+            
+            NSString *liveStr = [NSString stringWithFormat:@"%@", TestRtmpURL];
+            liveStr = [liveStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            
+            liveVC.liveURL = [NSURL URLWithString:liveStr];
+            [self.navigationController pushViewController:liveVC animated:NO];
+            //[self presentViewController:liveVC animated:YES completion:nil];
             break;
         }
         default:

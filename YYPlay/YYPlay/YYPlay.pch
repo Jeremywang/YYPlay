@@ -40,5 +40,14 @@
 
 #define VEDIOSCREEN_HEIGHT   240
 #define TestVedioURL         @"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4"
-//#define TestVedioURL         @"http://192.168.0.12/2.mp4"
+//#define TestVedioURL         @"rtmp://192.168.110.94:1935/jstream/room"
+#define TestRtmpURL          @"rtmp://192.168.0.12:1935/jstream/room"
+
+#if RELEASE
+#define YYPlayLog(fmt, ...)
+#else
+#define YYPlayLog(fmt, ...) NSLog((@"[%s Line %d] \n" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#endif
+
+
 #endif /* YYPlay_pch */

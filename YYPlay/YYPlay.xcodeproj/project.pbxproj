@@ -52,6 +52,9 @@
 		3FA8B1DE1D50EB8E009AE276 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA8B1D71D50EB8E009AE276 /* libswresample.a */; };
 		3FA8B1DF1D50EB8E009AE276 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA8B1D81D50EB8E009AE276 /* libswscale.a */; };
 		3FA8B1E21D50EF4A009AE276 /* YYMiniPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8B1E11D50EF4A009AE276 /* YYMiniPlayerView.m */; };
+		3FF178811D76D2DA00371118 /* LivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF178801D76D2DA00371118 /* LivePlayerViewController.m */; };
+		3FF178851D781CFE00371118 /* UIImageView+YYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF178841D781CFE00371118 /* UIImageView+YYExtension.m */; };
+		3FF178881D781D2C00371118 /* UIViewController+YYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF178871D781D2C00371118 /* UIViewController+YYExtension.m */; };
 		5769DB0E877ED21717F8ACF4 /* libPods-YYPlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BBF5CF9BBB245B2FC825A1D /* libPods-YYPlay.a */; };
 /* End PBXBuildFile section */
 
@@ -229,6 +232,12 @@
 		3FA8B1D81D50EB8E009AE276 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		3FA8B1E01D50EF4A009AE276 /* YYMiniPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMiniPlayerView.h; sourceTree = "<group>"; };
 		3FA8B1E11D50EF4A009AE276 /* YYMiniPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMiniPlayerView.m; sourceTree = "<group>"; };
+		3FF1787F1D76D2DA00371118 /* LivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivePlayerViewController.h; sourceTree = "<group>"; };
+		3FF178801D76D2DA00371118 /* LivePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivePlayerViewController.m; sourceTree = "<group>"; };
+		3FF178831D781CFE00371118 /* UIImageView+YYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YYExtension.h"; sourceTree = "<group>"; };
+		3FF178841D781CFE00371118 /* UIImageView+YYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YYExtension.m"; sourceTree = "<group>"; };
+		3FF178861D781D2C00371118 /* UIViewController+YYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YYExtension.h"; sourceTree = "<group>"; };
+		3FF178871D781D2C00371118 /* UIViewController+YYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YYExtension.m"; sourceTree = "<group>"; };
 		4BBF5CF9BBB245B2FC825A1D /* libPods-YYPlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYPlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F82A3027ED7FF9F9B8C711F /* Pods-YYPlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYPlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYPlay/Pods-YYPlay.release.xcconfig"; sourceTree = "<group>"; };
 		EA5DEE2B8704D5D84EF2E976 /* Pods-YYPlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYPlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YYPlay/Pods-YYPlay.debug.xcconfig"; sourceTree = "<group>"; };
@@ -290,6 +299,8 @@
 				3F3638C91D52E358007E3ED5 /* FFMpegViewController.m */,
 				3F04CB171D597D6600FA51F9 /* FFMpegPushStreamViewController.h */,
 				3F04CB181D597D6600FA51F9 /* FFMpegPushStreamViewController.m */,
+				3FF1787F1D76D2DA00371118 /* LivePlayerViewController.h */,
+				3FF178801D76D2DA00371118 /* LivePlayerViewController.m */,
 				3F4B1D1B1D67063700F0EB21 /* JAVPlayerViewController.h */,
 				3F4B1D1C1D67063700F0EB21 /* JAVPlayerViewController.m */,
 				3F4B1D201D670E6300F0EB21 /* MPPlayerViewController.h */,
@@ -309,6 +320,10 @@
 				3F24D9221D61CE2100407FF9 /* UIColor+JCAdditions.m */,
 				3F24D9231D61CE2100407FF9 /* UIFont+JCAdditions.h */,
 				3F24D9241D61CE2100407FF9 /* UIFont+JCAdditions.m */,
+				3FF178831D781CFE00371118 /* UIImageView+YYExtension.h */,
+				3FF178841D781CFE00371118 /* UIImageView+YYExtension.m */,
+				3FF178861D781D2C00371118 /* UIViewController+YYExtension.h */,
+				3FF178871D781D2C00371118 /* UIViewController+YYExtension.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -733,8 +748,10 @@
 				3F31AF181D54722500DF66C8 /* FFMpegDecodeViewController.m in Sources */,
 				3FA8B0C81D4F5C9A009AE276 /* SideMenuContentViewController.m in Sources */,
 				3F7FDF321D4F453D00E04DA1 /* AppDelegate.m in Sources */,
+				3FF178811D76D2DA00371118 /* LivePlayerViewController.m in Sources */,
 				3F4B1D251D6AA1A800F0EB21 /* SystemAVPlayerViewController.m in Sources */,
 				3F7FDF2F1D4F453D00E04DA1 /* main.m in Sources */,
+				3FF178881D781D2C00371118 /* UIViewController+YYExtension.m in Sources */,
 				3F4B1D1D1D67063700F0EB21 /* JAVPlayerViewController.m in Sources */,
 				3F04CB191D597D6600FA51F9 /* FFMpegPushStreamViewController.m in Sources */,
 				3F24D9251D61CE2100407FF9 /* UIColor+JCAdditions.m in Sources */,
@@ -749,6 +766,7 @@
 				3F3638CA1D52E358007E3ED5 /* FFMpegViewController.m in Sources */,
 				3F3424D51D73DF78008972BE /* YYAvplayerView.m in Sources */,
 				3FA8B0C51D4F5ABC009AE276 /* DEMOSecondViewController.m in Sources */,
+				3FF178851D781CFE00371118 /* UIImageView+YYExtension.m in Sources */,
 				3F3638C01D51C15A007E3ED5 /* SettingViewController.m in Sources */,
 				3F3638BD1D51BDD4007E3ED5 /* YYNavigationController.m in Sources */,
 				3F3424CF1D6DAD78008972BE /* ASValueTrackingSlider.m in Sources */,
