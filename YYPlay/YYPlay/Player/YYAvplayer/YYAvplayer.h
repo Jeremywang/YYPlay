@@ -24,6 +24,15 @@
 #define DeviceScreenHeight                          [[UIScreen mainScreen] bounds].size.height
 #define DeviceScreenSize                            [[UIScreen mainScreen] bounds].size
 
+#define iPHone6Plus ([UIScreen mainScreen].bounds.size.height == 736) ? YES : NO
+
+#define iPHone6 ([UIScreen mainScreen].bounds.size.height == 667) ? YES : NO
+
+#define iPHone5 ([UIScreen mainScreen].bounds.size.height == 568) ? YES : NO
+
+#define iPHone4 ([UIScreen mainScreen].bounds.size.height == 480) ? YES : NO
+
+
 // 颜色值RGB
 #define RGBA(r,g,b,a)                       [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 

@@ -19,14 +19,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self setupChildViewController];
-    UIImageView *imagev = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon"]];
-    [self.view addSubview:imagev];
-    [imagev mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.height.equalTo(@MiniPlayerViewHeight);
-    }];
+//    UIImageView *imagev = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon"]];
+//    [self.view addSubview:imagev];
+//    [imagev mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.view.mas_left);
+//        make.right.equalTo(self.view.mas_right);
+//        make.bottom.equalTo(self.view.mas_bottom);
+//        make.height.equalTo(@MiniPlayerViewHeight);
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {

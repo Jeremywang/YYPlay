@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <IJKMediaFramework/IJKMediaFramework.h>
 
 @interface JAVPlayerViewController : UIViewController
 
 @property (nonatomic, strong) NSURL *playUrl;
+@property (nonatomic, strong) UIImageView *placeholderImageView;
+
+
++ (JAVPlayerViewController *)initWithURL:(NSString *)url;
 
 @end

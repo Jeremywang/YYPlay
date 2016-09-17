@@ -1720,7 +1720,7 @@ typedef NS_ENUM(NSInteger, YYAvplayerState) {
         UIImage *image = [UIImage imageNamed:self.placeholderImageName];
         self.layer.contents = (id) image.CGImage;
     }else {
-        UIImage *image = YYAvplayerImage(@"ZFPlayer_loading_bgView");
+        UIImage *image = YYAvplayerImage(@"YYAvlayer_loading_bgView");
         self.layer.contents = (id) image.CGImage;
     }
 }

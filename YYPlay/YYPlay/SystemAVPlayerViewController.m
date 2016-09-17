@@ -77,7 +77,7 @@
     
     
     // 设置播放前的占位图（需要在设置视频URL之前设置）
-    self.playerContainer.placeholderImageName = @"loading_bgView1";
+    self.playerContainer.placeholderImageName = @"defaultbackground";
     // 设置视频的URL
     self.playerContainer.videoURL = self.linkURL;
     // 设置标题
