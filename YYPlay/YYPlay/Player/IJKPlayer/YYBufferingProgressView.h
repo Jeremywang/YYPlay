@@ -10,4 +10,12 @@
 
 @interface YYBufferingProgressView : UIView
 
++ (instancetype)shareInstance;
+
++ (void)showInView:(UIView *)view;
+
++ (void)dismiss;
+
+@property (nonatomic, assign) NSInteger progress;
+
 @end

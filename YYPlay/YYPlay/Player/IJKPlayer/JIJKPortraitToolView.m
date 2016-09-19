@@ -7,6 +7,7 @@
 //
 
 #import "JIJKPortraitToolView.h"
+#import "YYBufferingProgressView.h"
 
 #define TopViewBgHeight    50
 #define BottomViewBgHeight 40
@@ -110,6 +111,12 @@
     [_littlePlayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(_buttomBg.mas_leading).offset(12);
         make.height.width.mas_equalTo(30);
+        make.centerY.mas_equalTo(_buttomBg.mas_centerY);
+    }];
+    
+    [_fullScreenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.mas_equalTo(_buttomBg.mas_trailing).offset(-5);
+        make.height.with.mas_equalTo(30);
         make.centerY.mas_equalTo(_buttomBg.mas_centerY);
     }];
 }
@@ -291,5 +298,20 @@
     if (tapGesture.state == UIGestureRecognizerStateRecognized) {
         _isShowPortraitTooView ? ([self hiddenPortraitToolView]) : ([self showPortraitToolView]);
     }
+}
+
+- (void)showLoading
+{
+    [YYBufferingProgressView showInView:self] ;
+}
+
+- (void)dismissLoading
+{
+    [YYBufferingProgressView dismiss];
+}
+
+- (void)setLoadingProgress:(NSUInteger)progress
+{
+    [[YYBufferingProgressView shareInstance] setProgress:progress];
 }
 @end

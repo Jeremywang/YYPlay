@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) JIJKPortraitToolView *portraitToolView;
 
+@property (nonatomic, strong) NSTimer *bufferingTimer;
 @end
 
 @implementation JIJKPlayerView
@@ -202,6 +203,7 @@
     }];
     self.portraitToolView.delegatePlayer = self.player;
     [self bringSubviewToFront:_portraitToolView];
+    [self.portraitToolView showLoading];
     
     [self addNotifications];
 }
@@ -224,20 +226,22 @@
     
     if ((loadState & IJKMPMovieLoadStatePlaythroughOK || loadState & IJKMPMovieLoadStatePlayable) != 0) { //缓冲结束
         YYPlayLog(@"loadStateDidChange: IJKMPMovieLoadStatePlaythroughOK: %d\n", (int)loadState);
-//        [self.player play];
-//        [self hideGifLoading];
-//        //[self endBuffer];
-//        if (_placeHolderView) {
-//            [_placeHolderView removeFromSuperview];
-//            _placeHolderView = nil;
-//        }
+        [_portraitToolView setLoadingProgress:0];
+        [_portraitToolView dismissLoading];
     } else if ((loadState & IJKMPMovieLoadStateStalled) != 0) { //缓冲开始
         YYPlayLog(@"loadStateDidChange: IJKMPMovieLoadStateStalled: %d\n", (int)loadState);
-//        [self showGifLoading:nil inView:self.player.view];
-//        //[self beginbBuffering];
+
+        self.bufferingTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(buffering) userInfo:nil repeats:YES];
+        [_portraitToolView showLoading];
     } else {
         YYPlayLog(@"loadStateDidChange: ???: %d\n", (int)loadState);
     }
+}
+
+- (void)buffering
+{
+    YYPlayLog(@"当前缓冲进度： %zd", [self.player bufferingProgress]);
+    [_portraitToolView setLoadingProgress:[self.player bufferingProgress]];
 }
 
 - (void)moviePlayBackDidFinish:(NSNotification*)notification

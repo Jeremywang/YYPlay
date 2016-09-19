@@ -18,4 +18,8 @@ typedef void(^JIJKPortraitToolViewCallBack)(void);
 
 + (instancetype)portraitToolViewWithBackBtnDidTouchCallBack:(JIJKPortraitToolViewCallBack)backBtnCallBack fullScreenBtnDidTouchCallBack:(JIJKPortraitToolViewCallBack)fullScreenBtnCallBack;
 
+- (void)showLoading;
+- (void)dismissLoading;
+- (void)setLoadingProgress:(NSUInteger)progress;
+
 @end
