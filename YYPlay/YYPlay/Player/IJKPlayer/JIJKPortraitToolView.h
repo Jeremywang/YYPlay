@@ -14,6 +14,8 @@ typedef void(^JIJKPortraitToolViewCallBack)(void);
 
 @property (nonatomic, weak) id<IJKMediaPlayback> delegatePlayer;
 
+@property (nonatomic, strong) UILabel *titleLabel;
+
 + (instancetype)portraitToolViewWithBackBtnDidTouchCallBack:(JIJKPortraitToolViewCallBack)backBtnCallBack fullScreenBtnDidTouchCallBack:(JIJKPortraitToolViewCallBack)fullScreenBtnCallBack;
 
 @end

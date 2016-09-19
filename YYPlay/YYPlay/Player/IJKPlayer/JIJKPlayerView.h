@@ -15,6 +15,8 @@ typedef void(^JIJKPlayerViewCallBack)(void);
 
 @property (nonatomic, strong) NSURL *videoUrl;
 
+@property (nonatomic, strong) NSString *videoTitle;
+
 @property (nonatomic, assign) IJKMPMovieScalingMode scaleMode;
 
 @property (nonatomic, strong) UIImage *thumbnailImageAtCurrentTime;

@@ -206,6 +206,12 @@
     [self addNotifications];
 }
 
+- (void)setVideoTitle:(NSString *)videoTitle
+{
+    _videoTitle = videoTitle;
+    [self.portraitToolView.titleLabel setText:videoTitle];
+}
+
 
 - (void)loadStateDidChange:(NSNotification *)notification
 {

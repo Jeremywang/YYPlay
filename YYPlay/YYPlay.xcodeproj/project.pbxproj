@@ -28,6 +28,7 @@
 		3F51DF991D829ECB009867A0 /* JIJKPortraitToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F51DF981D829ECB009867A0 /* JIJKPortraitToolView.m */; };
 		3F51DF9C1D829EED009867A0 /* JIJKLandsapeToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F51DF9B1D829EED009867A0 /* JIJKLandsapeToolView.m */; };
 		3F51DFA01D864AD6009867A0 /* iState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F51DF9F1D864AD6009867A0 /* iState.m */; };
+		3F64DAA01D8F82B400130E54 /* YYBufferingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64DA9F1D8F82B400130E54 /* YYBufferingProgressView.m */; };
 		3F6DFB261D80041700E771F5 /* JIJKPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DFB251D80041700E771F5 /* JIJKPlayerView.m */; };
 		3F7FDF2F1D4F453D00E04DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF2E1D4F453D00E04DA1 /* main.m */; };
 		3F7FDF321D4F453D00E04DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF311D4F453D00E04DA1 /* AppDelegate.m */; };
@@ -104,6 +105,8 @@
 		3F51DF9B1D829EED009867A0 /* JIJKLandsapeToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JIJKLandsapeToolView.m; sourceTree = "<group>"; };
 		3F51DF9E1D864AD6009867A0 /* iState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iState.h; sourceTree = "<group>"; };
 		3F51DF9F1D864AD6009867A0 /* iState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iState.m; sourceTree = "<group>"; };
+		3F64DA9E1D8F82B400130E54 /* YYBufferingProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYBufferingProgressView.h; sourceTree = "<group>"; };
+		3F64DA9F1D8F82B400130E54 /* YYBufferingProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYBufferingProgressView.m; sourceTree = "<group>"; };
 		3F6DFB241D80041700E771F5 /* JIJKPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JIJKPlayerView.h; sourceTree = "<group>"; };
 		3F6DFB251D80041700E771F5 /* JIJKPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JIJKPlayerView.m; sourceTree = "<group>"; };
 		3F7FDF2A1D4F453D00E04DA1 /* YYPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,6 +358,8 @@
 			children = (
 				3F6DFB241D80041700E771F5 /* JIJKPlayerView.h */,
 				3F6DFB251D80041700E771F5 /* JIJKPlayerView.m */,
+				3F64DA9E1D8F82B400130E54 /* YYBufferingProgressView.h */,
+				3F64DA9F1D8F82B400130E54 /* YYBufferingProgressView.m */,
 				3F51DF971D829ECB009867A0 /* JIJKPortraitToolView.h */,
 				3F51DF981D829ECB009867A0 /* JIJKPortraitToolView.m */,
 				3F51DF9A1D829EED009867A0 /* JIJKLandsapeToolView.h */,
@@ -795,6 +800,7 @@
 				3F04CB191D597D6600FA51F9 /* FFMpegPushStreamViewController.m in Sources */,
 				3F24D9251D61CE2100407FF9 /* UIColor+JCAdditions.m in Sources */,
 				3F51DF991D829ECB009867A0 /* JIJKPortraitToolView.m in Sources */,
+				3F64DAA01D8F82B400130E54 /* YYBufferingProgressView.m in Sources */,
 				3FA8B1E21D50EF4A009AE276 /* YYMiniPlayerView.m in Sources */,
 				3F3424CC1D6D858C008972BE /* ASValuePopUpView.m in Sources */,
 				3FA8B1601D50E19D009AE276 /* YYPlayer.cpp in Sources */,

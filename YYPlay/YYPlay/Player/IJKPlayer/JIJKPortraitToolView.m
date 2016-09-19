@@ -21,8 +21,6 @@
 
 @property (nonatomic, strong) UIView *buttomBg;
 
-@property (nonatomic, strong) UILabel *titleLabel;
-
 @property (nonatomic, strong) UIButton *backBtn;
 
 @property (nonatomic, strong) UIButton *fullScreenBtn;
@@ -91,10 +89,10 @@
     }];
     
     [_backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.mas_equalTo(12);
-        make.width.mas_equalTo(30);
-        make.height.mas_equalTo(30);
-        make.bottom.mas_equalTo(_topBg.mas_bottom).offset(-5);
+        make.leading.mas_equalTo(5);
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(40);
+        make.bottom.mas_equalTo(_topBg.mas_bottom).offset(0);
     }];
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -125,6 +123,7 @@
 
 - (void)backBtnAction
 {
+    [self hiddenPortraitToolView];
     if (self.backBtnCallBack) {
         self.backBtnCallBack();
     }
@@ -164,6 +163,7 @@
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.font = [UIFont systemFontOfSize:15.0f];
+        [_titleLabel setTextAlignment:NSTextAlignmentCenter];
     }
     return _titleLabel;
 }

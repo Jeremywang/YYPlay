@@ -74,6 +74,7 @@
     [self.view addSubview:_playerView];
     _playerView.scaleMode = IJKMPMovieScalingModeFill;
     _playerView.videoUrl =  _playUrl;
+    _playerView.videoTitle = @"测试title";
     
     [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(0);
@@ -118,8 +119,8 @@
     
     [self.playerView prepareToPlay];
     
-   // [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-   // [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
