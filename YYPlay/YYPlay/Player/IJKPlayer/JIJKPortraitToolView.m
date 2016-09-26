@@ -8,9 +8,12 @@
 
 #import "JIJKPortraitToolView.h"
 #import "YYBufferingProgressView.h"
+#import "YYValueTrackingSlider.h"
 
 #define TopViewBgHeight    50
 #define BottomViewBgHeight 40
+#define TopBackgroundAlpha  0.7f
+#define ButtomBackgroundAlpha 0.7f
 
 @interface JIJKPortraitToolView()
 
@@ -38,7 +41,13 @@
 
 @property (nonatomic, strong) UIButton *lockBtn;
 
+@property (nonatomic, strong) UIProgressView *progressView;
+
 @property (nonatomic, assign) BOOL      isShowPortraitTooView;
+
+@property (nonatomic, assign) BOOL      trackingSliderIsDraging;
+
+@property (nonatomic, strong) NSTimer *sliderRefreshTimer;
 
 @end
 
@@ -65,6 +74,10 @@
     [self.buttomBg addSubview:self.littlePauseBtn];
     [self.buttomBg addSubview:self.lockBtn];
     [self.buttomBg addSubview:self.fullScreenBtn];
+    [self.buttomBg addSubview:self.currentTimeLabel];
+    [self.buttomBg addSubview:self.totalDurationLabel];
+    [self.buttomBg addSubview:self.progressView];
+    [self.buttomBg addSubview:self.trackingSlider];
     
     [self addSubview:self.bigPauseBtn];
     [self addSubview:self.bigPlayBtn];
@@ -80,6 +93,7 @@
     
     [self createGesture];
     [self autoFadeOutPortraitToolView];
+    [self beginRefresh];
 }
 
 - (void)makeSubViewsConstraints
@@ -90,14 +104,14 @@
     }];
     
     [_backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.mas_equalTo(5);
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(40);
-        make.bottom.mas_equalTo(_topBg.mas_bottom).offset(0);
+        make.leading.mas_equalTo(0);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(_topBg.mas_bottom).offset(-5);
     }];
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(_backBtn.mas_trailing).offset(10);
+        make.leading.mas_equalTo(_backBtn.mas_trailing).offset(10);
         make.height.mas_equalTo(30);
         make.centerY.mas_equalTo(_backBtn.mas_centerY);
         make.trailing.mas_equalTo(_topBg.mas_trailing).offset(-10);
@@ -109,7 +123,13 @@
     }];
     
     [_littlePlayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.mas_equalTo(_buttomBg.mas_leading).offset(12);
+        make.leading.mas_equalTo(_buttomBg.mas_leading).offset(0);
+        make.height.width.mas_equalTo(30);
+        make.centerY.mas_equalTo(_buttomBg.mas_centerY);
+    }];
+    
+    [_littlePauseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.mas_equalTo(_buttomBg.mas_leading).offset(0);
         make.height.width.mas_equalTo(30);
         make.centerY.mas_equalTo(_buttomBg.mas_centerY);
     }];
@@ -119,12 +139,44 @@
         make.height.with.mas_equalTo(30);
         make.centerY.mas_equalTo(_buttomBg.mas_centerY);
     }];
+    
+    [_currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.mas_equalTo(_littlePlayBtn.mas_trailing).offset(2);
+        make.height.mas_equalTo(20);
+        make.width.mas_equalTo(30);
+        make.centerY.mas_equalTo(_buttomBg.mas_centerY);
+    }];
+    
+    [_totalDurationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.mas_equalTo(_fullScreenBtn.mas_leading).offset(-5);
+        make.height.mas_equalTo(20);
+        make.width.mas_equalTo(30);
+        make.centerY.mas_equalTo(_buttomBg.mas_centerY);
+    }];
+    
+    [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.mas_equalTo(_currentTimeLabel.mas_trailing).offset(5);
+        make.trailing.mas_equalTo(_totalDurationLabel.mas_leading).offset(-5);
+        make.centerY.mas_equalTo(_buttomBg.mas_centerY);
+        make.height.mas_equalTo(2);
+    }];
+    
+    [_trackingSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.mas_equalTo(_currentTimeLabel.mas_trailing).offset(5);
+        make.trailing.mas_equalTo(_totalDurationLabel.mas_leading).offset(-5);
+        make.centerY.mas_equalTo(_buttomBg.mas_centerY);
+        make.height.mas_equalTo(50);
+    }];
 }
 
 - (void)addTouchAction
 {
     [self.backBtn addTarget:self action:@selector(backBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.fullScreenBtn addTarget:self action:@selector(fullScreenBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.littlePlayBtn addTarget:self action:@selector(playBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.littlePauseBtn addTarget:self action:@selector(pauseBtnAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -143,13 +195,23 @@
     }
 }
 
+- (void)playBtnAction
+{
+    [self goToState:PLayerState_play];
+}
+
+- (void)pauseBtnAction
+{
+    [self goToState:PLayerState_pause];
+}
+
 
 - (UIView *)topBg
 {
     if (!_topBg) {
         _topBg = [[UIView alloc] init];
         _topBg.backgroundColor = [UIColor blackColor];
-        _topBg.alpha = 0.4f;
+        _topBg.alpha = TopBackgroundAlpha;
     }
     return _topBg;
 }
@@ -159,7 +221,7 @@
     if (!_buttomBg) {
         _buttomBg = [[UIView alloc] init];
         _buttomBg.backgroundColor = [UIColor blackColor];
-        _buttomBg.alpha = 0.4f;
+        _buttomBg.alpha = ButtomBackgroundAlpha;
     }
     return _buttomBg;
 }
@@ -170,7 +232,7 @@
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.font = [UIFont systemFontOfSize:15.0f];
-        [_titleLabel setTextAlignment:NSTextAlignmentCenter];
+        [_titleLabel setTextAlignment:NSTextAlignmentLeft];
     }
     return _titleLabel;
 }
@@ -247,6 +309,63 @@
     return _lockBtn;
 }
 
+- (UILabel *)currentTimeLabel
+{
+    if (!_currentTimeLabel) {
+        _currentTimeLabel = [UILabel new];
+        _currentTimeLabel.font = [UIFont systemFontOfSize:8.0f];
+        _currentTimeLabel.textColor = [UIColor whiteColor];
+        [_currentTimeLabel setText:@"00:00"];
+    }
+    return _currentTimeLabel;
+}
+
+- (UILabel *)totalDurationLabel
+{
+    if (!_totalDurationLabel) {
+        _totalDurationLabel = [UILabel new];
+        _totalDurationLabel.font = [UIFont systemFontOfSize:8.0f];
+        _totalDurationLabel.textColor = [UIColor whiteColor];
+        [_totalDurationLabel setText:@"00:00"];
+    }
+    
+    return _totalDurationLabel;
+}
+
+- (YYValueTrackingSlider *)trackingSlider
+{
+    if (!_trackingSlider) {
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterPercentStyle];
+        
+        _trackingSlider = [YYValueTrackingSlider new];
+        _trackingSlider.maximumValue = 1;
+        [_trackingSlider setNumberFormatter:formatter];
+        [_trackingSlider setMaxFractionDigitsDisplayed:0];
+        _trackingSlider.popUpViewColor = [UIColor colorWithHue:0.55 saturation:0.8 brightness:0.9 alpha:0.7];
+        _trackingSlider.font = [UIFont fontWithName:@"GillSans-Bold" size:22];
+        _trackingSlider.textColor = [UIColor colorWithHue:0.55 saturation:1.0 brightness:0.5 alpha:1];
+        _trackingSlider.popUpViewWidthPaddingFactor = 1.7;
+        [_trackingSlider setThumbImage:YYAvplayerImage(@"YYAvplayer_slider") forState:UIControlStateNormal];
+
+        _trackingSlider.minimumTrackTintColor = [UIColor orangeColor];
+        _trackingSlider.maximumTrackTintColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5];
+    }
+    
+    return _trackingSlider;
+}
+
+- (UIProgressView *)progressView
+{
+    if (!_progressView) {
+        _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        _progressView.progressTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+        _progressView.trackTintColor = [UIColor clearColor];
+    }
+    
+    return _progressView;
+}
+
 - (void)showPortraitToolView
 {
     __weak typeof(self) weakSelf = self;
@@ -314,4 +433,77 @@
 {
     [[YYBufferingProgressView shareInstance] setProgress:progress];
 }
+
+- (void)refreshMediaControl
+{
+    if (self.isShowPortraitTooView) {
+        //duration
+        NSTimeInterval duration = self.delegatePlayer.duration;
+        NSInteger intDuration = duration + 0.5;
+        
+        NSInteger durMin = intDuration / 60;
+        NSInteger durSec = intDuration % 60;
+        if (intDuration > 0) {
+            self.totalDurationLabel.text = [NSString stringWithFormat:@"%02zd:%02zd", durMin, durSec];
+        } else {
+            self.totalDurationLabel.text = @"--:--";
+        }
+        
+        //postion
+        NSTimeInterval postion;
+        if (_trackingSliderIsDraging) {
+            postion = self.trackingSlider.value;
+        } else {
+            NSInteger curMin = (NSInteger)self.delegatePlayer.currentPlaybackTime / 60;
+            NSInteger curSec = (NSInteger)self.delegatePlayer.currentPlaybackTime % 60;
+            self.currentTimeLabel.text = [NSString stringWithFormat:@"%02zd:%02zd", curMin, curSec];
+        }
+        
+        self.trackingSlider.value = self.delegatePlayer.currentPlaybackTime / self.delegatePlayer.duration;
+        
+        [self.progressView setProgress:self.delegatePlayer.playableDuration / self.delegatePlayer.duration animated:NO];
+    }
+}
+
+- (void)beginRefresh
+{
+    self.sliderRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(refreshMediaControl) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.sliderRefreshTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)goToState:(PLayerState)state
+{
+    switch (state) {
+        case PlayerState_init:
+            [self.buttomBg setHidden:YES];
+            break;
+        case PlayerState_loading:
+            [self showLoading];
+            [_littlePlayBtn setHidden:YES];
+            [_littlePauseBtn setHidden:NO];
+            break;
+        case PLayerState_playing:
+            [self dismissLoading];
+            [self.buttomBg setHidden:NO];
+            [_littlePlayBtn setHidden:YES];
+            [_littlePauseBtn setHidden:NO];
+            [self showPortraitToolView];
+            break;
+        case PLayerState_pause:
+            [_littlePlayBtn setHidden:NO];
+            [_littlePauseBtn setHidden:YES];
+            [self.delegatePlayer pause];
+            break;
+        case PLayerState_play:
+            [_littlePlayBtn setHidden:YES];
+            [_littlePauseBtn setHidden:NO];
+            [self.delegatePlayer play];
+            break;
+        case PLayerState_stop:
+            break;
+        default:
+            break;
+    }
+}
+
 @end

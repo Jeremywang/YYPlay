@@ -8,6 +8,7 @@
 
 #import "JIJKPlayerView.h"
 
+
 @interface JIJKPlayerView()
 @property (nonatomic, strong) UIImageView *placeholderImageView;
 
@@ -20,6 +21,11 @@
 @property (nonatomic, strong) JIJKPortraitToolView *portraitToolView;
 
 @property (nonatomic, strong) NSTimer *bufferingTimer;
+
+@property (nonatomic) PLayerState currentPlayerState;
+
+
+
 @end
 
 @implementation JIJKPlayerView
@@ -143,11 +149,9 @@
     if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
         // 设置横屏
         [self setOrientationLandscape];
-        
     }else if (orientation == UIInterfaceOrientationPortrait) {
         // 设置竖屏
         [self setOrientationPortrait];
-        
     }
 }
 
@@ -190,12 +194,24 @@
     [self addSubview:self.player.view];
     
     _portraitToolView = [JIJKPortraitToolView portraitToolViewWithBackBtnDidTouchCallBack:^{
-        if (self.backCallBack) {
-            self.backCallBack();
+        
+        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        UIInterfaceOrientation interfaceOrientation = (UIInterfaceOrientation)orientation;
+        
+        if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
+            if (self.backCallBack) {
+                self.backCallBack();
+            }
+        } else {
+            [self interfaceOrientation:UIInterfaceOrientationPortrait];
         }
+        
     } fullScreenBtnDidTouchCallBack:^{
+        
         [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
+        
     }];
+    [_portraitToolView goToState:PlayerState_init];
 
     [self addSubview:_portraitToolView];
     [_portraitToolView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -203,7 +219,7 @@
     }];
     self.portraitToolView.delegatePlayer = self.player;
     [self bringSubviewToFront:_portraitToolView];
-    [self.portraitToolView showLoading];
+    [_portraitToolView goToState:PlayerState_loading];
     
     [self addNotifications];
 }
@@ -227,12 +243,12 @@
     if ((loadState & IJKMPMovieLoadStatePlaythroughOK || loadState & IJKMPMovieLoadStatePlayable) != 0) { //缓冲结束
         YYPlayLog(@"loadStateDidChange: IJKMPMovieLoadStatePlaythroughOK: %d\n", (int)loadState);
         [_portraitToolView setLoadingProgress:0];
-        [_portraitToolView dismissLoading];
+        [_portraitToolView goToState:PLayerState_playing];
     } else if ((loadState & IJKMPMovieLoadStateStalled) != 0) { //缓冲开始
         YYPlayLog(@"loadStateDidChange: IJKMPMovieLoadStateStalled: %d\n", (int)loadState);
 
-        self.bufferingTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(buffering) userInfo:nil repeats:YES];
-        [_portraitToolView showLoading];
+        self.bufferingTimer = [NSTimer scheduledTimerWithTimeInterval:0.25f target:self selector:@selector(buffering) userInfo:nil repeats:YES];
+        [_portraitToolView goToState:PlayerState_loading];
     } else {
         YYPlayLog(@"loadStateDidChange: ???: %d\n", (int)loadState);
     }
@@ -331,7 +347,6 @@
         {
 //            self.portraitToolView.hidden = NO;
 //            self.landscapeToolView.hidden = YES;
-            
             break;
         }
         case UIInterfaceOrientationLandscapeLeft:
@@ -430,7 +445,6 @@
     
     return [self.player thumbnailImageAtCurrentTime];
 }
-
 @end
 
 

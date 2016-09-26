@@ -29,6 +29,8 @@
 		3F51DF9C1D829EED009867A0 /* JIJKLandsapeToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F51DF9B1D829EED009867A0 /* JIJKLandsapeToolView.m */; };
 		3F51DFA01D864AD6009867A0 /* iState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F51DF9F1D864AD6009867A0 /* iState.m */; };
 		3F64DAA01D8F82B400130E54 /* YYBufferingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64DA9F1D8F82B400130E54 /* YYBufferingProgressView.m */; };
+		3F64DAA31D8FF55E00130E54 /* YYValuePopUPview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64DAA21D8FF55E00130E54 /* YYValuePopUPview.m */; };
+		3F64DAA61D8FF58200130E54 /* YYValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64DAA51D8FF58200130E54 /* YYValueTrackingSlider.m */; };
 		3F6DFB261D80041700E771F5 /* JIJKPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DFB251D80041700E771F5 /* JIJKPlayerView.m */; };
 		3F7FDF2F1D4F453D00E04DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF2E1D4F453D00E04DA1 /* main.m */; };
 		3F7FDF321D4F453D00E04DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FDF311D4F453D00E04DA1 /* AppDelegate.m */; };
@@ -107,6 +109,10 @@
 		3F51DF9F1D864AD6009867A0 /* iState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iState.m; sourceTree = "<group>"; };
 		3F64DA9E1D8F82B400130E54 /* YYBufferingProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYBufferingProgressView.h; sourceTree = "<group>"; };
 		3F64DA9F1D8F82B400130E54 /* YYBufferingProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYBufferingProgressView.m; sourceTree = "<group>"; };
+		3F64DAA11D8FF55E00130E54 /* YYValuePopUPview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYValuePopUPview.h; sourceTree = "<group>"; };
+		3F64DAA21D8FF55E00130E54 /* YYValuePopUPview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYValuePopUPview.m; sourceTree = "<group>"; };
+		3F64DAA41D8FF58200130E54 /* YYValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYValueTrackingSlider.h; sourceTree = "<group>"; };
+		3F64DAA51D8FF58200130E54 /* YYValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYValueTrackingSlider.m; sourceTree = "<group>"; };
 		3F6DFB241D80041700E771F5 /* JIJKPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JIJKPlayerView.h; sourceTree = "<group>"; };
 		3F6DFB251D80041700E771F5 /* JIJKPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JIJKPlayerView.m; sourceTree = "<group>"; };
 		3F7FDF2A1D4F453D00E04DA1 /* YYPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,6 +370,10 @@
 				3F51DF981D829ECB009867A0 /* JIJKPortraitToolView.m */,
 				3F51DF9A1D829EED009867A0 /* JIJKLandsapeToolView.h */,
 				3F51DF9B1D829EED009867A0 /* JIJKLandsapeToolView.m */,
+				3F64DAA11D8FF55E00130E54 /* YYValuePopUPview.h */,
+				3F64DAA21D8FF55E00130E54 /* YYValuePopUPview.m */,
+				3F64DAA41D8FF58200130E54 /* YYValueTrackingSlider.h */,
+				3F64DAA51D8FF58200130E54 /* YYValueTrackingSlider.m */,
 			);
 			name = IJKPlayer;
 			path = /Users/jeremy/GitHub/YYPlay/YYPlay/YYPlay/Player/IJKPlayer;
@@ -809,7 +819,9 @@
 				3F24D9261D61CE2100407FF9 /* UIFont+JCAdditions.m in Sources */,
 				3F3424C91D6C4D2F008972BE /* YYAvplayerBrightnessView.m in Sources */,
 				3F3424D21D6FDE6F008972BE /* YYAvplayerControlView.m in Sources */,
+				3F64DAA31D8FF55E00130E54 /* YYValuePopUPview.m in Sources */,
 				3F51DF9C1D829EED009867A0 /* JIJKLandsapeToolView.m in Sources */,
+				3F64DAA61D8FF58200130E54 /* YYValueTrackingSlider.m in Sources */,
 				3F3638CA1D52E358007E3ED5 /* FFMpegViewController.m in Sources */,
 				3F51DFA01D864AD6009867A0 /* iState.m in Sources */,
 				3F3424D51D73DF78008972BE /* YYAvplayerView.m in Sources */,

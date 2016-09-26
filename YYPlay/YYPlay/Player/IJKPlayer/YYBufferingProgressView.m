@@ -54,15 +54,18 @@
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(60);
-        make.height.mas_equalTo(80);
+        make.height.mas_equalTo(70);
     }];
     
     [self addSubview:self.loadingImageView];
     [self addSubview:self.progressLabel];
     
     [_loadingImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.top.trailing.mas_equalTo(self);
-        make.height.mas_equalTo(60);
+        //make.leading.top.trailing.mas_equalTo(self);
+        make.leading.mas_equalTo(self).with.offset(10);
+        make.trailing.mas_equalTo(self).with.offset(-10);
+        make.top.mas_equalTo(self);
+        make.height.mas_equalTo(40);
     }];
     
     [_progressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
