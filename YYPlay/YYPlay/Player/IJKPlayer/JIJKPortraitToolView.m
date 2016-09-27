@@ -154,18 +154,17 @@
         make.centerY.mas_equalTo(_buttomBg.mas_centerY);
     }];
     
-    [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.mas_equalTo(_currentTimeLabel.mas_trailing).offset(5);
-        make.trailing.mas_equalTo(_totalDurationLabel.mas_leading).offset(-5);
-        make.centerY.mas_equalTo(_buttomBg.mas_centerY);
-        make.height.mas_equalTo(2);
-    }];
-    
     [_trackingSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(_currentTimeLabel.mas_trailing).offset(5);
         make.trailing.mas_equalTo(_totalDurationLabel.mas_leading).offset(-5);
         make.centerY.mas_equalTo(_buttomBg.mas_centerY);
         make.height.mas_equalTo(50);
+    }];
+    
+    [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.mas_equalTo(_trackingSlider.mas_leading);
+        make.trailing.mas_equalTo(_trackingSlider.mas_trailing);
+        make.centerY.mas_equalTo(_trackingSlider.mas_centerY).offset(1);
     }];
 }
 
@@ -421,7 +420,8 @@
 
 - (void)showLoading
 {
-    [YYBufferingProgressView showInView:self] ;
+    [YYBufferingProgressView showInView:self];
+    [[YYBufferingProgressView shareInstance] setProgress:0];
 }
 
 - (void)dismissLoading

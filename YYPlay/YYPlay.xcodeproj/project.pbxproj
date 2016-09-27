@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F036AAE1D9A85310060458F /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F036AAD1D9A85310060458F /* libSDL2.a */; };
 		3F04CB161D597D2400FA51F9 /* resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F04CB151D597D2400FA51F9 /* resource.bundle */; };
 		3F04CB191D597D6600FA51F9 /* FFMpegPushStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F04CB181D597D6600FA51F9 /* FFMpegPushStreamViewController.m */; };
 		3F24D9251D61CE2100407FF9 /* UIColor+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F24D9221D61CE2100407FF9 /* UIColor+JCAdditions.m */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F036AAD1D9A85310060458F /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSDL2.a; sourceTree = "<group>"; };
 		3F04CB151D597D2400FA51F9 /* resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resource.bundle; sourceTree = "<group>"; };
 		3F04CB171D597D6600FA51F9 /* FFMpegPushStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFMpegPushStreamViewController.h; sourceTree = "<group>"; };
 		3F04CB181D597D6600FA51F9 /* FFMpegPushStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFMpegPushStreamViewController.m; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			files = (
 				3FA8B1DD1D50EB8E009AE276 /* libavutil.a in Frameworks */,
 				3FA8B15D1D50DFBB009AE276 /* AudioToolbox.framework in Frameworks */,
+				3F036AAE1D9A85310060458F /* libSDL2.a in Frameworks */,
 				3FA8B15B1D50DFB2009AE276 /* AVFoundation.framework in Frameworks */,
 				3FA8B1DB1D50EB8E009AE276 /* libavfilter.a in Frameworks */,
 				3FA8B1591D50DFA8009AE276 /* libbz2.1.0.tbd in Frameworks */,
@@ -657,6 +660,7 @@
 		FBD8BB545845D5CB9BFE9E8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F036AAD1D9A85310060458F /* libSDL2.a */,
 				3FA8B15C1D50DFBB009AE276 /* AudioToolbox.framework */,
 				3FA8B15A1D50DFB2009AE276 /* AVFoundation.framework */,
 				3FA8B1581D50DFA8009AE276 /* libbz2.1.0.tbd */,
@@ -959,6 +963,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YYPlay/FFmpeg-iOS/lib",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mayfly.YYPlay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -993,6 +998,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YYPlay/FFmpeg-iOS/lib",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mayfly.YYPlay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
